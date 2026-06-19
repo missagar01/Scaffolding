@@ -1,0 +1,330 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-amber: #4f46e5;
+  --primary-light: #f5f7ff;
+  --bg-white: #ffffff;
+  --border-light: #f1f5f9;
+}
+
+body {
+  background-color: var(--bg-white);
+  color: #334155;
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+  font-size: 12px;
+  min-height: 100vh;
+}
+
+/* Page Content Container */
+.page-content {
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  border: 1px solid var(--border-gray);
+  padding: 0.75rem;
+}
+
+/* Glass effect - Updated for professional look */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.modal-backdrop {
+  background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(4px);
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Typography Overrides */
+.text-navy { color: var(--primary-navy); }
+.bg-navy { background-color: var(--primary-navy); }
+
+/* Animation - Subtle Floating */
+@keyframes soft-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.animate-soft-float {
+  animation: soft-float 4s ease-in-out infinite;
+}
+
+/* Standardized Card Style */
+.hr-card {
+  @apply bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow duration-300;
+}
+
+.hr-input {
+  @apply w-full px-3 py-1.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all;
+}
+
+.hr-button-primary {
+  @apply bg-blue-600 hover:bg-blue-700 text-white font-medium py-1.5 px-3.5 rounded-lg transition-colors shadow-sm active:transform active:scale-95;
+}
+
+.hr-button-secondary {
+  @apply bg-white border border-slate-300 text-slate-700 hover:bg-slate-50 font-medium py-1.5 px-3.5 rounded-lg transition-colors;
+}
+
+/* Global Table Compaction */
+table th, table td {
+  padding: 0.5rem 1rem !important; /* Overriding common utility classes like px-6 py-4 */
+}
+
+/* Compact Table for Cuplock Specifications */
+table.cuplock-table th, table.cuplock-table td {
+  padding: 5px 12px !important;
+  font-size: 11.5px;
+}
+
+/* Table cells padding on Mobile */
+table.cuplock-table-mobile th, table.cuplock-table-mobile td {
+  padding: 4px 8px !important;
+  font-size: 9.5px;
+}
+
+/* Redefining some tailwind utility defaults if needed directly */
+
+/* Custom Subtle Pulse Animation */
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.96; transform: scale(1.015); }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 2.5s ease-in-out infinite;
+}
+
+/* Hide Spinners for Number Inputs */
+.no-spinners::-webkit-inner-spin-button,
+.no-spinners::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+.no-spinners {
+  -moz-appearance: textfield; /* Firefox */
+  appearance: textfield;
+}
+
+/* Custom Row Color Coding based on Order Type */
+tr.order-row-urgent {
+  background-color: #fef2f2 !important; /* soft red */
+}
+tr.order-row-urgent:hover {
+  background-color: #fee2e2 !important; /* slightly darker soft red on hover */
+}
+tr.order-row-urgent td {
+  background-color: #fef2f2 !important;
+  color: #991b1b !important;
+}
+tr.order-row-urgent:hover td {
+  background-color: #fee2e2 !important;
+}
+
+tr.order-row-stock {
+  background-color: #eff6ff !important; /* soft blue */
+}
+tr.order-row-stock:hover {
+  background-color: #dbeafe !important; /* slightly darker soft blue on hover */
+}
+tr.order-row-stock td {
+  background-color: #eff6ff !important;
+  color: #1e40af !important;
+}
+tr.order-row-stock:hover td {
+  background-color: #dbeafe !important;
+}
+
+/* ==========================================================================
+   Sales Deck - Reusable Slide Border & Centered Navigation Styles
+   ========================================================================== */
+
+.border-page-container {
+  position: relative;
+  height: 100vh;
+  height: 100dvh;
+  width: 100%;
+  background-color: #fdfcfa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+  user-select: none;
+}
+
+.border-bg-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #ffffff 0%, #fcfbf9 50%, #f6f3eb 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.border-bg-line-1 {
+  position: absolute;
+  top: 25%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, rgba(226, 216, 213, 0.3), transparent);
+  transform: rotate(-12deg);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.border-bg-line-2 {
+  position: absolute;
+  top: 66.6%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(226, 216, 213, 0.2), transparent);
+  transform: rotate(-12deg);
+  pointer-events: none;
+  z-index: 0;
+}
+/* Content wrapper */
+.border-content-wrapper {
+  position: relative;
+  z-index: 30;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 6vh;
+}
+
+@media (min-width: 768px) {
+  .border-content-wrapper {
+    justify-content: center;
+    padding-top: 0;
+  }
+}
+
+.border-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 40;
+}
+
+/* Slide Navigation Overlay (Footer side, centered in a single row) */
+.border-slide-navigation {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+  z-index: 50;
+  pointer-events: auto;
+}
+
+@media (min-width: 768px) {
+  .border-slide-navigation {
+    bottom: 40px;
+  }
+}
+
+.border-nav-dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.border-nav-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #cbd5e1; /* slate-300 */
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.border-nav-dot:hover {
+  background-color: #94a3b8; /* slate-400 */
+}
+
+.border-nav-dot-active {
+  width: 20px;
+  height: 8px;
+  border-radius: 9999px;
+  background-color: #8c1d21; /* Brand Red */
+  transition: all 0.3s ease-in-out;
+}
+
+.border-nav-button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(226, 216, 213, 0.8);
+  background-color: #ffffff;
+  color: #121b2a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  outline: none;
+}
+
+.border-nav-button:hover:not(:disabled) {
+  background-color: #8c1d21;
+  color: #ffffff;
+  border-color: #8c1d21;
+  transform: scale(1.08);
+}
+
+.border-nav-button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.border-nav-powerby {
+  font-size: 10px;
+  font-family: monospace;
+  letter-spacing: 0.08em;
+  color: #94a3b8;
+  text-transform: uppercase;
+}
+
+.border-nav-powerby-highlight {
+  color: #ea580c; /* Orange */
+  font-weight: 700;
+}
+
+/* Custom Overrides to Enforce Dark Black Text Throughout the System */
+.text-slate-400,
+.text-slate-500,
+.text-slate-600,
+.text-slate-700,
+.text-slate-800,
+.text-slate-900,
+.text-\[\#334155\],
+.text-\[\#475569\],
+.text-\[\#1e293b\] {
+  color: #000000 !important;
+}
+
