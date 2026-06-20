@@ -106,7 +106,7 @@ const CupLockSystem = () => {
                 : "bg-white text-slate-600 border-slate-200 hover:text-slate-800 hover:bg-slate-50"
             }`}
           >
-            {isMobile ? "Verticals" : "Vertical Standards"}
+            Vertical Standards
           </button>
           <button
             onClick={() => setActiveTab('ledgers')}
@@ -116,7 +116,7 @@ const CupLockSystem = () => {
                 : "bg-white text-slate-600 border-slate-200 hover:text-slate-800 hover:bg-slate-50"
             }`}
           >
-            {isMobile ? "Ledgers" : "Horizontal Ledgers"}
+            Horizontal Ledgers
           </button>
         </div>
 
@@ -138,7 +138,7 @@ const CupLockSystem = () => {
                     {/* Description Text */}
                     <p className="text-slate-600 text-[10.5px] leading-relaxed">
                       <Shield size={12} className="inline-block text-[#8c1d21] mr-1.5 align-middle shrink-0" />
-                      Verticals are the principal load bearing members comprising of Sets of Top and Bottom Cups. The Bottom Cups are welded at 500/1000 mm distance. The Top Cups are movable and retained by a fix stop. Made of 40NB class pipes.
+                      Verticals are the principal load bearing members comprising of Sets of Top and Bottom Cups. The Bottom Cups are welded at 500/1000 mm distance. The Top Cups are movable and retained by a fix stop. Made of 40NB Medium/Heavy class pipes, drilled for Spigot Joints.
                     </p>
 
                     {/* Tables Row - Side by side on mobile */}
@@ -148,9 +148,9 @@ const CupLockSystem = () => {
                         <table className="cuplock-table-mobile w-full text-left border-collapse">
                           <thead>
                             <tr className="bg-slate-50 border-b border-slate-100 text-[8.5px] text-slate-500 font-semibold uppercase">
-                              <th className="py-0.5 px-1.5">Size</th>
-                              <th className="py-0.5 px-1.5">Cups</th>
-                              <th className="py-0.5 px-1.5">Wt</th>
+                              <th className="py-0.5 px-1.5">Size (mm)</th>
+                              <th className="py-0.5 px-1.5">Cups (500/1k)</th>
+                              <th className="py-0.5 px-1.5">Weight (Kg)</th>
                             </tr>
                           </thead>
                           <tbody className="text-[9.5px] text-slate-600 font-medium divide-y divide-slate-100">
@@ -170,9 +170,9 @@ const CupLockSystem = () => {
                         <table className="cuplock-table-mobile w-full text-left border-collapse">
                           <thead>
                             <tr className="bg-slate-50 border-b border-slate-100 text-[8.5px] text-slate-500 font-semibold uppercase">
-                              <th className="py-0.5 px-1.5">Brac</th>
-                              <th className="py-0.5 px-1.5">Med</th>
-                              <th className="py-0.5 px-1.5">Hvy</th>
+                              <th className="py-0.5 px-1.5">Bracing (mm)</th>
+                              <th className="py-0.5 px-1.5">Medium (T)</th>
+                              <th className="py-0.5 px-1.5">Heavy (T)</th>
                             </tr>
                           </thead>
                           <tbody className="text-[9.5px] text-slate-600 font-medium divide-y divide-slate-100">
@@ -205,7 +205,7 @@ const CupLockSystem = () => {
                     {/* Table notes */}
                     <span className="text-[8px] text-slate-400 font-normal italic block">
                       <Info size={9} className="inline-block mr-1 align-middle shrink-0" />
-                      Tolerance +/- 3%. Load values are indicative staging references.
+                      Tolerance of +/- 3% applies to weights. Load values are indicative staging references.
                     </span>
                   </div>
                 ) : (
@@ -314,7 +314,7 @@ const CupLockSystem = () => {
                     {/* Description Text */}
                     <p className="text-slate-600 text-[10.5px] leading-relaxed">
                       <Shield size={12} className="inline-block text-[#8c1d21] mr-1.5 align-middle shrink-0" />
-                      Horizontals are made of 40 NB Light / Medium class pipes with forged Ledger blades welded at both the ends. Simple robust design requires no maintenance.
+                      Horizontals are made of 40 NB Light / Medium class pipes with forged Ledger blades welded at both the ends. The simple robust design ensures that Ledgers Horizontals need no maintenance. Length of the Ledgers Horizontal is calculated between Centre to Centre of such two Verticals.
                     </p>
 
                     {/* Table Row */}
@@ -356,7 +356,7 @@ const CupLockSystem = () => {
                     {/* Table notes */}
                     <span className="text-[8px] text-slate-400 font-normal italic block">
                       <Info size={9} className="inline-block mr-1 align-middle shrink-0" />
-                      Tolerance +/- 3%. Length calculated between Vertical centers.
+                      Tolerance of +/- 3% applies to weights. Length calculated between Vertical centers.
                     </span>
                   </div>
                 ) : (
