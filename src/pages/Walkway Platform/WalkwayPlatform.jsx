@@ -28,14 +28,14 @@ const containerVariants = {
 
 const cardVariants = {
   hidden: { y: 12, opacity: 0 },
-  show: { 
-    y: 0, 
-    opacity: 1, 
-    transition: { 
-      type: "spring", 
-      stiffness: 130, 
-      damping: 15 
-    } 
+  show: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      stiffness: 130,
+      damping: 15
+    }
   }
 };
 
@@ -49,7 +49,7 @@ const WalkwayPlatform = () => {
     const handleResize = () => {
       const height = window.innerHeight;
       const width = window.innerWidth;
-      
+
       if (width < 768) {
         // Mobile screens: vertical layout
         const availableHeight = height - 240;
@@ -76,16 +76,16 @@ const WalkwayPlatform = () => {
 
   return (
     <div className="relative w-full h-full flex items-center justify-center px-6 sm:px-12 md:px-16 lg:px-20 overflow-hidden select-none">
-      
+
       {/* Main Container with height auto-adjustment */}
-      <div 
+      <div
         style={{ transform: `scale(${scaleFactor})`, transformOrigin: 'center' }}
         className="relative z-10 w-full max-w-6xl flex flex-col md:grid md:grid-cols-12 gap-6 md:gap-10 py-2 md:py-4 mt-[-3vh] md:mt-[-2vh] transition-transform duration-300"
       >
-        
+
         {/* Left Side: All Content (Header, Tabs, Tab Content) */}
         <div className="flex-1 md:col-span-8 flex flex-col justify-start">
-          
+
           {/* Header Block matching other pages */}
           <div className="flex flex-col mb-2">
             <div className="relative inline-block w-fit mb-1.5 pb-0.5">
@@ -104,21 +104,19 @@ const WalkwayPlatform = () => {
           <div className="flex justify-center md:justify-start gap-1.5 sm:gap-3 mt-3 mb-4 w-full">
             <button
               onClick={() => setActiveTab('tech')}
-              className={`py-1.5 px-2 md:py-2 md:px-4 text-[10px] sm:text-xs md:text-sm font-bold transition-all rounded-lg border shadow-xs whitespace-nowrap ${
-                activeTab === 'tech'
+              className={`py-1.5 px-2 md:py-2 md:px-4 text-[10px] sm:text-xs md:text-sm font-bold transition-all rounded-lg border shadow-xs whitespace-nowrap ${activeTab === 'tech'
                   ? "bg-[#8c1d21] text-white border-[#8c1d21]"
                   : "bg-white text-slate-600 border-slate-200 hover:text-slate-800 hover:bg-slate-50"
-              }`}
+                }`}
             >
               Technical Specs
             </button>
             <button
               onClick={() => setActiveTab('sizes')}
-              className={`py-1.5 px-2 md:py-2 md:px-4 text-[10px] sm:text-xs md:text-sm font-bold transition-all rounded-lg border shadow-xs whitespace-nowrap ${
-                activeTab === 'sizes'
+              className={`py-1.5 px-2 md:py-2 md:px-4 text-[10px] sm:text-xs md:text-sm font-bold transition-all rounded-lg border shadow-xs whitespace-nowrap ${activeTab === 'sizes'
                   ? "bg-[#8c1d21] text-white border-[#8c1d21]"
                   : "bg-white text-slate-600 border-slate-200 hover:text-slate-800 hover:bg-slate-50"
-              }`}
+                }`}
             >
               Standard Sizes
             </button>
@@ -168,44 +166,44 @@ const WalkwayPlatform = () => {
                       </div>
 
                       {/* Three Value Cards: Access, Flow, Use */}
-                      <motion.div 
+                      <motion.div
                         variants={containerVariants}
                         initial="hidden"
                         animate="show"
-                        className="flex gap-2 py-0.5 mt-0.5 w-full overflow-x-auto scrollbar-hide shrink-0"
+                        className="grid grid-cols-3 gap-1.5 py-0.5 mt-0.5 w-full shrink-0"
                       >
-                        <motion.div 
+                        <motion.div
                           variants={cardVariants}
                           whileTap={{ scale: 0.97 }}
-                          className="min-w-[125px] flex-1 bg-teal-50 border border-teal-200/80 rounded-lg p-2 flex flex-col gap-0.5 shrink-0"
+                          className="bg-teal-50 border border-teal-200/80 rounded-lg p-1.5 flex flex-col gap-0.5 shrink-0 text-center sm:text-left"
                         >
-                          <span className="text-teal-800 font-bold text-[10px]">Access</span>
-                          <span className="text-teal-600 text-[8.5px] leading-tight">Providing safe, engineered reach height</span>
+                          <span className="text-teal-800 font-bold text-[9px]">Access</span>
+                          <span className="text-teal-600 text-[7.5px] leading-tight">Providing safe, engineered reach height</span>
                         </motion.div>
-                        <motion.div 
+                        <motion.div
                           variants={cardVariants}
                           whileTap={{ scale: 0.97 }}
-                          className="min-w-[125px] flex-1 bg-amber-50 border border-amber-200/80 rounded-lg p-2 flex flex-col gap-0.5 shrink-0"
+                          className="bg-amber-50 border border-amber-200/80 rounded-lg p-1.5 flex flex-col gap-0.5 shrink-0 text-center sm:text-left"
                         >
-                          <span className="text-amber-800 font-bold text-[10px]">Flow</span>
-                          <span className="text-amber-600 text-[8.5px] leading-tight">Creating an unobstructed flow on the job site</span>
+                          <span className="text-amber-800 font-bold text-[9px]">Flow</span>
+                          <span className="text-amber-600 text-[7.5px] leading-tight">Creating an unobstructed flow on the job site</span>
                         </motion.div>
-                        <motion.div 
+                        <motion.div
                           variants={cardVariants}
                           whileTap={{ scale: 0.97 }}
-                          className="min-w-[125px] flex-1 bg-blue-50 border border-blue-200/80 rounded-lg p-2 flex flex-col gap-0.5 shrink-0"
+                          className="bg-blue-50 border border-blue-200/80 rounded-lg p-1.5 flex flex-col gap-0.5 shrink-0 text-center sm:text-left"
                         >
-                          <span className="text-blue-800 font-bold text-[10px]">Use</span>
-                          <span className="text-blue-600 text-[8.5px] leading-tight">Ensuring maximum functional utility and versatility</span>
+                          <span className="text-blue-800 font-bold text-[9px]">Use</span>
+                          <span className="text-blue-600 text-[7.5px] leading-tight">Ensuring maximum functional utility and versatility</span>
                         </motion.div>
                       </motion.div>
 
                       {/* Graphic display banner */}
                       <div className="w-full h-[120px] rounded-xl overflow-hidden border border-slate-200/60 bg-white shadow-sm relative mt-0.5">
-                        <img 
-                          src={walkwaysImg} 
-                          alt="Walkway Platform" 
-                          className="w-full h-full object-cover scale-[1.05] transition-transform duration-500" 
+                        <img
+                          src={walkwaysImg}
+                          alt="Walkway Platform"
+                          className="w-full h-full object-cover scale-[1.05] transition-transform duration-500"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-900/0 opacity-90" />
                         <div className="absolute bottom-2 left-3 right-3 text-white">
@@ -214,10 +212,6 @@ const WalkwayPlatform = () => {
                         </div>
                       </div>
 
-                      <span className="text-[8px] text-slate-400 font-normal italic block">
-                        <Info size={9} className="inline-block mr-1 align-middle shrink-0" />
-                        Tolerance +/- 3% on tube and weight specifications.
-                      </span>
                     </div>
                   ) : (
                     /* Desktop view - simplified specs layout without image */
@@ -260,13 +254,13 @@ const WalkwayPlatform = () => {
                       </div>
 
                       {/* Three Value Cards: Access, Flow, Use */}
-                      <motion.div 
+                      <motion.div
                         variants={containerVariants}
                         initial="hidden"
                         animate="show"
                         className="grid grid-cols-3 gap-2.5 mt-1 w-full"
                       >
-                        <motion.div 
+                        <motion.div
                           variants={cardVariants}
                           whileHover={{ scale: 1.02, translateY: -2 }}
                           whileTap={{ scale: 0.98 }}
@@ -275,7 +269,7 @@ const WalkwayPlatform = () => {
                           <span className="text-teal-800 font-bold text-xs">Access</span>
                           <span className="text-teal-600 text-[10px] leading-tight">Providing safe, engineered reach height</span>
                         </motion.div>
-                        <motion.div 
+                        <motion.div
                           variants={cardVariants}
                           whileHover={{ scale: 1.02, translateY: -2 }}
                           whileTap={{ scale: 0.98 }}
@@ -284,7 +278,7 @@ const WalkwayPlatform = () => {
                           <span className="text-amber-800 font-bold text-xs">Flow</span>
                           <span className="text-amber-600 text-[10px] leading-tight">Creating an unobstructed flow on the job site</span>
                         </motion.div>
-                        <motion.div 
+                        <motion.div
                           variants={cardVariants}
                           whileHover={{ scale: 1.02, translateY: -2 }}
                           whileTap={{ scale: 0.98 }}
@@ -294,10 +288,6 @@ const WalkwayPlatform = () => {
                           <span className="text-blue-600 text-[10px] leading-tight">Ensuring maximum functional utility and versatility</span>
                         </motion.div>
                       </motion.div>
-
-                      <span className="text-[8px] sm:text-[9px] text-slate-400 font-normal italic flex items-center gap-1 mt-1">
-                        <Info size={10} /> Tolerance +/- 3% on tube and weight specifications.
-                      </span>
                     </div>
                   )}
                 </motion.div>
@@ -343,10 +333,10 @@ const WalkwayPlatform = () => {
 
                       {/* Graphic display banner */}
                       <div className="w-full h-[120px] rounded-xl overflow-hidden border border-slate-200/60 bg-white shadow-sm relative mt-0.5">
-                        <img 
-                          src={walkwaysImg} 
-                          alt="Walkway Platform" 
-                          className="w-full h-full object-cover scale-[1.05] transition-transform duration-500" 
+                        <img
+                          src={walkwaysImg}
+                          alt="Walkway Platform"
+                          className="w-full h-full object-cover scale-[1.05] transition-transform duration-500"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-900/0 opacity-90" />
                         <div className="absolute bottom-2 left-3 right-3 text-white">
@@ -414,10 +404,10 @@ const WalkwayPlatform = () => {
         {!isMobile && (
           <div className="md:col-span-4 rounded-2xl overflow-hidden border border-slate-200/60 bg-white shadow-md relative group flex flex-col items-stretch h-full">
             <div className="w-full h-full relative overflow-hidden flex-1">
-              <img 
-                src={walkwaysImg} 
-                alt="Walkway Platform" 
-                className="w-full h-full object-cover scale-[1.05] group-hover:scale-[1.12] transition-transform duration-500" 
+              <img
+                src={walkwaysImg}
+                alt="Walkway Platform"
+                className="w-full h-full object-cover scale-[1.05] group-hover:scale-[1.12] transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-900/0 opacity-90" />
               <div className="absolute bottom-4 left-4 right-4 text-white z-10">

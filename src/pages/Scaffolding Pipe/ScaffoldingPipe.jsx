@@ -164,10 +164,7 @@ const ScaffoldingPipe = () => {
                         </div>
                       </div>
 
-                      <span className="text-[8px] text-slate-400 font-normal italic block">
-                        <Info size={9} className="inline-block mr-1 align-middle shrink-0" />
-                        Tolerance +/- 3% on tube specifications.
-                      </span>
+                    
                     </div>
                   ) : (
                     /* Desktop view - simplified specs layout without image */
@@ -209,9 +206,7 @@ const ScaffoldingPipe = () => {
                         </div>
                       </div>
 
-                      <span className="text-[8px] sm:text-[9px] text-slate-400 font-normal italic flex items-center gap-1 mt-1">
-                        <Info size={10} /> Tolerance +/- 3% on tube specifications.
-                      </span>
+                    
                     </div>
                   )}
                 </motion.div>

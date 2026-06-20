@@ -11,6 +11,15 @@ import AdjustableBaseJack from './pages/Adjustable Base Jack/AdjustableBaseJack'
 import AdjustableUBaseJack from './pages/Adjustable U-Base Jack/AdjustableUBaseJack';
 import ScaffoldingPipe from './pages/Scaffolding Pipe/ScaffoldingPipe';
 import WalkwayPlatform from './pages/Walkway Platform/WalkwayPlatform';
+import ShutteringMaterialAndSupportUse from './pages/Shuttering Material & Support Use/ShutteringMaterial&SupportUse';
+import TechnicalStandardsAndMaterialPositioning from './pages/Technical Standards & Material Positioning/TechnicalStandards&MaterialPositioning';
+
+import ApplicationAreas from './pages/Application Areas/ApplicationAreas';
+import QualityTestingAndInspection from './pages/Quality Testing & Inspection/QualityTesting&Inspection';
+import DealerAndContractor from './pages/Dealer & Contractor Value Proposition/Dealer&Contractor';
+import ProcurementChecklist from './pages/Procurement Checklist for Buyers/ProcurementChecklist';
+import WhyChoose from './pages/Why Choose SAGAR SCAFFOLDING/WhyChoose';
+
 
 function App() {
   return (
@@ -27,6 +36,14 @@ function App() {
           <Route path="/ubasejack" element={<AdjustableUBaseJack />} />
           <Route path="/pipe" element={<ScaffoldingPipe />} />
           <Route path="/walkway" element={<WalkwayPlatform />} />
+          <Route path="/shuttering" element={<ShutteringMaterialAndSupportUse />} />
+          <Route path="/technical-standards" element={<TechnicalStandardsAndMaterialPositioning />} />
+
+          <Route path="/application-areas" element={<ApplicationAreas />} />
+          <Route path="/quality-testing" element={<QualityTestingAndInspection />} />
+          <Route path="/dealer-contractor" element={<DealerAndContractor />} />
+          <Route path="/procurement-checklist" element={<ProcurementChecklist />} />
+          <Route path="/why-choose" element={<WhyChoose />} />
           <Route path="*" element={<Home />} />
         </Route>
       </Routes>

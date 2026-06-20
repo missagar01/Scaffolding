@@ -30,7 +30,7 @@ const CupLockSystem = () => {
         // Mobile screens: vertical layout
         // We have: Header + Tab bar (approx 160px) + Dots/Footer (approx 80px) = 240px static space
         const availableHeight = height - 240;
-        const targetHeight = 410; // compact mobile content height
+        const targetHeight = 460; // compact mobile content height
         let factor = availableHeight / targetHeight;
         setScaleFactor(Math.max(0.65, Math.min(1, factor)));
       } else {
@@ -189,7 +189,7 @@ const CupLockSystem = () => {
                     </div>
 
                     {/* Graphic display banner at the bottom */}
-                    <div className="w-full h-[160px] rounded-xl overflow-hidden border border-slate-200/60 bg-white shadow-sm relative mt-0.5">
+                    <div className="w-full h-[110px] rounded-xl overflow-hidden border border-slate-200/60 bg-white shadow-sm relative mt-0.5">
                       <img 
                         src={verticalImg} 
                         alt="Cuplock Vertical Standard" 
@@ -202,11 +202,7 @@ const CupLockSystem = () => {
                       </div>
                     </div>
 
-                    {/* Table notes */}
-                    <span className="text-[8px] text-slate-400 font-normal italic block">
-                      <Info size={9} className="inline-block mr-1 align-middle shrink-0" />
-                      Tolerance of +/- 3% applies to weights. Load values are indicative staging references.
-                    </span>
+                  
                   </div>
                 ) : (
                   /* Desktop view */
@@ -277,10 +273,7 @@ const CupLockSystem = () => {
                         </div>
                       </div>
                       
-                      {/* Table notes */}
-                      <span className="text-[8px] sm:text-[9px] text-slate-400 font-normal italic flex items-center gap-1 mt-1">
-                        <Info size={10} /> Tolerance of +/- 3% applies to weights. Load values are indicative staging references.
-                      </span>
+                     
                     </div>
 
                     {/* Verticals Graphic display */}
@@ -340,7 +333,7 @@ const CupLockSystem = () => {
                     </div>
 
                     {/* Graphic display banner at the bottom */}
-                    <div className="w-full h-[160px] rounded-xl overflow-hidden border border-slate-200/60 bg-white shadow-sm relative mt-0.5">
+                    <div className="w-full h-[110px] rounded-xl overflow-hidden border border-slate-200/60 bg-white shadow-sm relative mt-0.5">
                       <img 
                         src={ledgerImg} 
                         alt="Cuplock Ledger Horizontal" 
@@ -353,11 +346,7 @@ const CupLockSystem = () => {
                       </div>
                     </div>
 
-                    {/* Table notes */}
-                    <span className="text-[8px] text-slate-400 font-normal italic block">
-                      <Info size={9} className="inline-block mr-1 align-middle shrink-0" />
-                      Tolerance of +/- 3% applies to weights. Length calculated between Vertical centers.
-                    </span>
+                   
                   </div>
                 ) : (
                   /* Desktop view */
@@ -398,10 +387,7 @@ const CupLockSystem = () => {
                         </table>
                       </div>
                       
-                      {/* Table notes */}
-                      <span className="text-[8px] sm:text-[9px] text-slate-400 font-normal italic flex items-center gap-1 mt-1">
-                        <Info size={10} /> Tolerance of +/- 3% applies to weights. Length calculated between Vertical centers.
-                      </span>
+                   
                     </div>
 
                     {/* Ledgers Graphic display */}
