@@ -3,7 +3,7 @@ import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import Footer from './Footer';
-import aboutBg from '../Assets/bg.jpeg';
+import aboutBg from '../Assets/Bg.jpeg';
 
 const Layout = () => {
   const location = useLocation();
