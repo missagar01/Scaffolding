@@ -128,11 +128,11 @@ const Layout = () => {
       {/* ================= BACKGROUND DECORATIONS ================= */}
       <div className="border-bg-gradient" />
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden flex items-center justify-center">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_10%,_#fdfcfa_80%)] z-10" />
+        <div className="absolute inset-0 z-10 bg-[radial-gradient(ellipse_at_center,_transparent_10%,_#fdfcfa_80%)]" />
         <img 
           src={location.pathname === '/' || location.pathname === '/thankyou' ? newBg : aboutBg} 
           alt="Global Background" 
-          className="w-full h-full object-cover filter blur-[1.5px] opacity-40 scale-102"
+          className="w-full h-full object-cover filter blur-[1.5px] opacity-40 scale-102 transition-all duration-500"
         />
       </div>
       <div className="border-bg-line-1" />

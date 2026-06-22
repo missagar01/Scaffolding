@@ -16,11 +16,11 @@ const Home = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="flex flex-col items-center mb-6 sm:mb-8 z-10"
         >
-          <div className="bg-white/90 backdrop-blur-md rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.08)] border border-slate-200/60 overflow-hidden flex items-center justify-center">
+          <div className="bg-white/60 backdrop-blur-md rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.05)] border border-slate-200/40 overflow-hidden flex items-center justify-center transition-all hover:scale-105 duration-300">
             <img
               src={logo}
               alt="Sagar TMT & Pipes Logo"
-              className="w-[240px] sm:w-[300px] md:w-[450px] lg:w-[550px] h-auto object-cover select-none pointer-events-none transition-all hover:scale-105 duration-300"
+              className="w-[240px] sm:w-[300px] md:w-[450px] lg:w-[550px] h-auto object-cover select-none pointer-events-none"
             />
           </div>
         </motion.div>
