@@ -4,6 +4,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import Footer from './Footer';
 import aboutBg from '../Assets/Bg.jpeg';
+import newBg from '../Assets/Newbg.jpeg';
 
 const Layout = () => {
   const location = useLocation();
@@ -129,7 +130,7 @@ const Layout = () => {
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden flex items-center justify-center">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_10%,_#fdfcfa_80%)] z-10" />
         <img 
-          src={aboutBg} 
+          src={location.pathname === '/' || location.pathname === '/thankyou' ? newBg : aboutBg} 
           alt="Global Background" 
           className="w-full h-full object-cover filter blur-[1.5px] opacity-40 scale-102"
         />

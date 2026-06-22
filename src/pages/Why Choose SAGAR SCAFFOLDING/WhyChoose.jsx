@@ -104,7 +104,7 @@ const WhyChoose = () => {
             <div className="bg-white/90 backdrop-blur-sm border border-slate-200 rounded-2xl p-4 lg:p-6 shadow-sm h-full flex flex-col">
               <h3 className="text-[#1e293b] font-bold text-lg lg:text-xl mb-4 flex items-center gap-2">
                 <CheckCircle2 className="w-5 h-5 text-[#8c1d21]" />
-                Slide 3: Why Choose Us?
+                Why Choose Us?
               </h3>
               
               <div className="flex flex-col gap-3 lg:gap-4 flex-1 justify-center">
@@ -136,30 +136,30 @@ const WhyChoose = () => {
             <div className="relative w-full aspect-square max-w-[340px] lg:max-w-[460px] mx-auto mt-2 lg:mt-0">
               
               {/* Mission Circle - Top Left */}
-              <div className="absolute top-0 left-0 w-[56%] h-[56%] rounded-full bg-white border-[8px] lg:border-[12px] border-[#7cb342] shadow-[0_0_0_3px_white,0_4px_10px_rgba(0,0,0,0.08)] z-10 flex flex-col items-center justify-center p-2 lg:p-4 text-center">
-                <h3 className="text-[#7cb342] font-bold text-[10px] lg:text-sm mb-0.5 tracking-wider">MISSION</h3>
-                <p className="text-[7.5px] lg:text-[9.5px] text-slate-700 font-medium leading-[1.2] max-w-[85%]">
+              <div className="absolute top-0 left-0 w-[56%] h-[56%] rounded-full bg-white border-[5px] sm:border-[8px] lg:border-[12px] border-[#7cb342] shadow-[0_0_0_3px_white,0_4px_10px_rgba(0,0,0,0.08)] z-40 flex flex-col items-center justify-center p-1 sm:p-2 lg:p-4 text-center pr-3 pb-3 sm:pr-4 sm:pb-4 lg:pr-6 lg:pb-6">
+                <h3 className="text-[#7cb342] font-bold text-[9px] sm:text-[10px] lg:text-sm mb-0.5 tracking-wider">MISSION</h3>
+                <p className="text-[6.5px] sm:text-[7.5px] lg:text-[9.5px] text-slate-700 font-medium leading-[1.2] max-w-[85%] sm:max-w-[80%]">
                   To foster happiness by enabling individuals and teams to achieve goals with purpose and pride.
                 </p>
-                <Target className="w-4 h-4 lg:w-5 lg:h-5 text-[#7cb342] mt-1 opacity-90" />
+                <Target className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 text-[#7cb342] mt-1 opacity-90" />
               </div>
 
               {/* Values Circle - Top Right */}
-              <div className="absolute top-0 right-0 w-[56%] h-[56%] rounded-full bg-white border-[8px] lg:border-[12px] border-[#29b6f6] shadow-[0_0_0_3px_white,0_4px_10px_rgba(0,0,0,0.08)] z-20 flex flex-col items-center justify-center p-2 lg:p-4 text-center">
-                <h3 className="text-[#29b6f6] font-bold text-[10px] lg:text-sm mb-0.5 tracking-wider">VALUES</h3>
-                <p className="text-[8px] lg:text-[10px] text-slate-700 font-bold leading-tight max-w-[85%]">
+              <div className="absolute top-0 right-0 w-[56%] h-[56%] rounded-full bg-white border-[5px] sm:border-[8px] lg:border-[12px] border-[#29b6f6] shadow-[0_0_0_3px_white,0_4px_10px_rgba(0,0,0,0.08)] z-20 flex flex-col items-center justify-center p-1 sm:p-2 lg:p-4 text-center pl-3 pb-3 sm:pl-4 sm:pb-4 lg:pl-6 lg:pb-6">
+                <h3 className="text-[#29b6f6] font-bold text-[9px] sm:text-[10px] lg:text-sm mb-0.5 tracking-wider">VALUES</h3>
+                <p className="text-[6.5px] sm:text-[8px] lg:text-[10px] text-slate-700 font-bold leading-tight max-w-[85%] sm:max-w-[80%]">
                   Innovation<br/>Quality<br/>Reliability<br/>Pride & Purpose
                 </p>
-                <Handshake className="w-4 h-4 lg:w-5 lg:h-5 text-[#29b6f6] mt-1 opacity-90" />
+                <Handshake className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 text-[#29b6f6] mt-1 opacity-90" />
               </div>
 
               {/* Vision Circle - Bottom Center */}
-              <div className="absolute bottom-0 left-[22%] w-[56%] h-[56%] rounded-full bg-white border-[8px] lg:border-[12px] border-[#ef6c00] shadow-[0_0_0_3px_white,0_4px_10px_rgba(0,0,0,0.08)] z-30 flex flex-col items-center justify-center p-2 lg:p-4 text-center">
-                <Eye className="w-4 h-4 lg:w-5 lg:h-5 text-[#ef6c00] mb-0.5 opacity-90" />
-                <p className="text-[7.5px] lg:text-[9.5px] text-slate-700 font-medium leading-[1.2] max-w-[85%]">
+              <div className="absolute bottom-0 left-[22%] w-[56%] h-[56%] rounded-full bg-white border-[5px] sm:border-[8px] lg:border-[12px] border-[#ef6c00] shadow-[0_0_0_3px_white,0_4px_10px_rgba(0,0,0,0.08)] z-30 flex flex-col items-center justify-center p-1 sm:p-2 lg:p-4 text-center pt-4 sm:pt-6 lg:pt-8">
+                <Eye className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 text-[#ef6c00] mb-0.5 opacity-90" />
+                <p className="text-[6.5px] sm:text-[7.5px] lg:text-[9.5px] text-slate-700 font-medium leading-[1.2] max-w-[85%] sm:max-w-[80%]">
                   A deeper exploration of our journey toward becoming a value-driven organization with a culture of innovation.
                 </p>
-                <h3 className="text-[#ef6c00] font-bold text-[10px] lg:text-sm mt-0.5 tracking-wider">VISION</h3>
+                <h3 className="text-[#ef6c00] font-bold text-[9px] sm:text-[10px] lg:text-sm mt-0.5 tracking-wider">VISION</h3>
               </div>
 
             </div>

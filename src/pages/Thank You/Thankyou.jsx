@@ -16,27 +16,10 @@ const Thankyou = () => {
           className="flex flex-col items-center mb-6 sm:mb-8 z-10"
         >
           <div className="bg-white/90 backdrop-blur-md rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.08)] border border-slate-200/60 overflow-hidden flex items-center justify-center">
-            <img src={Logo} alt="Sagar Scaffolding Logo" className="w-[200px] sm:w-[260px] md:w-[320px] h-auto object-cover select-none pointer-events-none transition-all hover:scale-105 duration-300" />
+            <img src={Logo} alt="Sagar Scaffolding Logo" className="w-[200px] sm:w-[260px] md:w-[450px] lg:w-[550px] h-auto object-cover select-none pointer-events-none transition-all hover:scale-105 duration-300" />
           </div>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.97 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-          className="flex flex-col items-center w-full mb-6 sm:mb-8"
-        >
-          <div className="w-[50%] sm:w-[45%] h-[1px] bg-slate-400/80 mb-2" />
-          <h1 className="text-[#8c1d21] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-1 select-text font-serif leading-tight">
-            Sourabh Rolling Mills
-          </h1>
-          <h2 className="text-slate-800 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium tracking-wide mb-2 select-text leading-tight">
-            Pvt Ltd
-          </h2>
-          <div className="relative w-[50%] sm:w-[45%] h-[1px] bg-slate-400/80 mt-1">
-            <div className="absolute right-0 top-0 h-full w-[35%] bg-[#8c1d21]" />
-          </div>
-        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 15 }}
@@ -44,7 +27,7 @@ const Thankyou = () => {
           transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
           className="flex flex-col items-center text-center mt-2"
         >
-          <span className="text-[#8c1d21] font-extrabold text-2xl sm:text-3xl md:text-4xl tracking-wide mb-1">Thank You!</span>
+          <span className="text-[#8c1d21] font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-wide mb-2 mt-4">Thank You!</span>
           <span className="text-slate-600 text-base sm:text-lg md:text-xl font-medium">We appreciate your interest in our products.</span>
         </motion.div>
 

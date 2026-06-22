@@ -20,7 +20,7 @@ const Home = () => {
             <img
               src={logo}
               alt="Sagar TMT & Pipes Logo"
-              className="w-[240px] sm:w-[300px] md:w-[350px] h-auto object-cover select-none pointer-events-none transition-all hover:scale-105 duration-300"
+              className="w-[240px] sm:w-[300px] md:w-[450px] lg:w-[550px] h-auto object-cover select-none pointer-events-none transition-all hover:scale-105 duration-300"
             />
           </div>
         </motion.div>

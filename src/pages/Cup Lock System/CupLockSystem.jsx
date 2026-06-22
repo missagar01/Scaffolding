@@ -165,27 +165,7 @@ const CupLockSystem = () => {
                         </table>
                       </div>
 
-                      {/* Loads Table */}
-                      <div className="flex-1 bg-white border border-slate-200/80 rounded-lg overflow-hidden shadow-xs">
-                        <table className="cuplock-table-mobile w-full text-left border-collapse">
-                          <thead>
-                            <tr className="bg-slate-50 border-b border-slate-100 text-[8.5px] text-slate-500 font-semibold uppercase">
-                              <th className="py-0.5 px-1.5">Bracing (mm)</th>
-                              <th className="py-0.5 px-1.5">Medium (T)</th>
-                              <th className="py-0.5 px-1.5">Heavy (T)</th>
-                            </tr>
-                          </thead>
-                          <tbody className="text-[9.5px] text-slate-600 font-medium divide-y divide-slate-100">
-                            {loadTableVerticals.map((row, i) => (
-                              <tr key={i}>
-                                <td className="py-0.5 px-1.5">{row.length}</td>
-                                <td className="py-0.5 px-1.5">{row.medium}</td>
-                                <td className="py-0.5 px-1.5 text-[#8c1d21]">{row.heavy}</td>
-                              </tr>
-                            ))}
-                          </tbody>
-                        </table>
-                      </div>
+
                     </div>
 
                     {/* Graphic display banner at the bottom */}
@@ -245,32 +225,7 @@ const CupLockSystem = () => {
                           </table>
                         </div>
 
-                        {/* Loads Table */}
-                        <div className="flex-1 bg-white border border-slate-200/80 rounded-xl overflow-hidden shadow-sm">
-                          <div className="bg-[#8c1d21]/5 border-b border-slate-200/80 py-1.5 px-3">
-                            <span className="text-[10px] sm:text-xs font-bold text-[#8c1d21] flex items-center gap-1">
-                              <Hammer size={12} /> Permissible Staging Load
-                            </span>
-                          </div>
-                          <table className="cuplock-table w-full text-left border-collapse">
-                            <thead>
-                              <tr className="bg-slate-50 border-b border-slate-100 text-[9px] sm:text-[10px] text-slate-500 font-semibold uppercase">
-                                <th className="py-1 px-3">Bracing (mm)</th>
-                                <th className="py-1 px-3">Medium (T)</th>
-                                <th className="py-1 px-3">Heavy (T)</th>
-                              </tr>
-                            </thead>
-                            <tbody className="text-[10px] sm:text-xs text-slate-600 font-medium divide-y divide-slate-100">
-                              {loadTableVerticals.map((row, i) => (
-                                <tr key={i} className="hover:bg-slate-50/50">
-                                  <td className="py-1 px-3">{row.length}</td>
-                                  <td className="py-1 px-3">{row.medium}</td>
-                                  <td className="py-1 px-3 text-[#8c1d21]">{row.heavy}</td>
-                                </tr>
-                              ))}
-                            </tbody>
-                          </table>
-                        </div>
+
                       </div>
                       
                      
