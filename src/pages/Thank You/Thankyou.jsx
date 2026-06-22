@@ -1,31 +1,25 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, Mail, Phone } from 'lucide-react';
-import logo from '../../Assets/Logo.png';
+import Logo from '../../Assets/Logo.png';
+import { Phone, Globe, MapPin } from 'lucide-react';
 
-const Home = () => {
+const Thankyou = () => {
   return (
     <div className="relative w-full h-full flex flex-col items-center justify-center overflow-hidden select-none">
-
+      
+      {/* Top/Center Content */}
       <div className="relative z-10 flex flex-col items-center justify-center w-full max-w-4xl px-6 text-center -mt-16 sm:-mt-24 md:-mt-32">
-
-        {/* Top Section: Brand Logo */}
-        <motion.div
+        <motion.div 
           initial={{ opacity: 0, y: -15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="flex flex-col items-center mb-6 sm:mb-8 z-10"
         >
           <div className="bg-white/90 backdrop-blur-md rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.08)] border border-slate-200/60 overflow-hidden flex items-center justify-center">
-            <img
-              src={logo}
-              alt="Sagar TMT & Pipes Logo"
-              className="w-[240px] sm:w-[300px] md:w-[350px] h-auto object-cover select-none pointer-events-none transition-all hover:scale-105 duration-300"
-            />
+            <img src={Logo} alt="Sagar Scaffolding Logo" className="w-[200px] sm:w-[260px] md:w-[320px] h-auto object-cover select-none pointer-events-none transition-all hover:scale-105 duration-300" />
           </div>
         </motion.div>
 
-        {/* Middle Section: Title Block */}
         <motion.div
           initial={{ opacity: 0, scale: 0.97 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -44,83 +38,81 @@ const Home = () => {
           </div>
         </motion.div>
 
-        {/* Bottom Section: Tagline */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-          className="text-slate-800 text-base sm:text-lg md:text-xl font-light tracking-wide mb-0"
+          className="flex flex-col items-center text-center mt-2"
         >
-          <span className="font-extrabold text-slate-900">Strong, Reliable & Quality</span>
-          <span className="ml-1 text-slate-600">Scaffolding Solutions</span>
+          <span className="text-[#8c1d21] font-extrabold text-2xl sm:text-3xl md:text-4xl tracking-wide mb-1">Thank You!</span>
+          <span className="text-slate-600 text-base sm:text-lg md:text-xl font-medium">We appreciate your interest in our products.</span>
         </motion.div>
 
       </div>
 
-      {/* Contact Info Widget (Row on desktop, Column on mobile) - Positioned Down Side */}
+      {/* Bottom Contact Widget matching Home.jsx */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
         className="absolute bottom-20 md:bottom-24 left-0 right-0 mx-auto w-fit max-w-[95vw] md:max-w-none border-t border-slate-200/50 pt-5 md:pt-6 grid grid-cols-2 md:flex md:flex-row justify-center items-start md:items-stretch gap-x-4 gap-y-5 md:gap-8 lg:gap-10 text-left z-20 px-4 md:px-0"
       >
-        {/* Est & Location */}
+        
+        {/* Address */}
         <div className="flex items-center md:items-start gap-2.5 shrink-0 w-full md:w-auto">
           <div className="w-9 h-9 md:w-10 md:h-10 rounded-xl bg-gradient-to-br from-white to-[#fff5f5] flex items-center justify-center shrink-0 border border-[#8c1d21]/15 shadow-sm">
-            <Calendar className="w-4.5 h-4.5 md:w-5 md:h-5 text-[#8c1d21]" />
+            <MapPin className="w-4.5 h-4.5 md:w-5 md:h-5 text-[#8c1d21]" />
           </div>
           <div className="flex flex-col">
-            <span className="text-[#8c1d21] font-bold text-[9px] md:text-[10px] tracking-wider uppercase mb-0.5">EST. & LOCATION</span>
-            <span className="text-slate-800 font-bold text-[11px] sm:text-xs md:text-[13px] md:whitespace-nowrap">2005 - Raipur, CG</span>
+            <span className="text-[#8c1d21] font-bold text-[9px] md:text-[10px] tracking-wider uppercase mb-0.5">LOCATION</span>
+            <span className="text-slate-800 font-bold text-[11px] sm:text-xs md:text-[13px] md:whitespace-nowrap">Achholi Road, Urla, Raipur</span>
           </div>
         </div>
 
-        {/* Divider line for desktop */}
         <div className="hidden md:block w-[1px] bg-slate-200/80 my-1" />
 
-        {/* Direct Email */}
+        {/* Email & Web */}
         <div className="flex items-center md:items-start gap-2.5 shrink-0 w-full md:w-auto">
           <div className="w-9 h-9 md:w-10 md:h-10 rounded-xl bg-gradient-to-br from-white to-[#fff5f5] flex items-center justify-center shrink-0 border border-[#8c1d21]/15 shadow-sm">
-            <Mail className="w-4.5 h-4.5 md:w-5 md:h-5 text-[#8c1d21]" />
+            <Globe className="w-4.5 h-4.5 md:w-5 md:h-5 text-[#8c1d21]" />
           </div>
           <div className="flex flex-col">
-            <span className="text-[#8c1d21] font-bold text-[9px] md:text-[10px] tracking-wider uppercase mb-0.5">DIRECT EMAIL</span>
-            <span className="text-slate-800 font-bold text-[11px] sm:text-xs md:text-[13px] break-all max-w-[120px] md:max-w-none">mkt@sagargroup.co</span>
+             <span className="text-[#8c1d21] font-bold text-[9px] md:text-[10px] tracking-wider uppercase mb-0.5">ONLINE</span>
+             <span className="text-slate-800 font-bold text-[11px] sm:text-xs md:text-[13px] break-all">mkt@sagargroup.co</span>
           </div>
         </div>
 
-        {/* Divider line for desktop */}
         <div className="hidden md:block w-[1px] bg-slate-200/80 my-1" />
 
-        {/* Phone Support 1 */}
+        {/* Phone 1 */}
         <div className="flex items-start gap-2.5 shrink-0 w-full md:w-auto">
           <div className="w-9 h-9 md:w-10 md:h-10 rounded-xl bg-gradient-to-br from-white to-[#fff5f5] flex items-center justify-center shrink-0 border border-[#8c1d21]/15 shadow-sm mt-0.5">
             <Phone className="w-4.5 h-4.5 md:w-5 md:h-5 text-[#8c1d21]" />
           </div>
           <div className="flex flex-col">
             <span className="text-[#8c1d21] font-bold text-[9px] md:text-[10px] tracking-wider uppercase mb-0.5">PHONE SUPPORT</span>
-            <span className="text-slate-800 font-bold text-[11px] sm:text-xs md:text-[13px] leading-tight">+916266919126</span>
+            <span className="text-slate-800 font-bold text-[11px] sm:text-xs md:text-[13px] leading-tight">+91 6266919126</span>
           </div>
         </div>
 
-        {/* Divider line for desktop */}
         <div className="hidden md:block w-[1px] bg-slate-200/80 my-1" />
 
-        {/* Phone Support 2 */}
+        {/* Phone 2 & 3 */}
         <div className="flex items-start gap-2.5 shrink-0 w-full md:w-auto">
           <div className="w-9 h-9 md:w-10 md:h-10 rounded-xl bg-gradient-to-br from-white to-[#fff5f5] flex items-center justify-center shrink-0 border border-[#8c1d21]/15 shadow-sm mt-0.5">
             <Phone className="w-4.5 h-4.5 md:w-5 md:h-5 text-[#8c1d21]" />
           </div>
           <div className="flex flex-col">
-            <div className="flex flex-col gap-0.5 pt-0 md:pt-3">
-              <span className="text-slate-800 font-bold text-[11px] sm:text-xs md:text-[13px] leading-tight">+917723020092</span>
-              <span className="text-slate-800 font-bold text-[11px] sm:text-xs md:text-[13px] leading-tight">+917723020091</span>
+             <div className="flex flex-col gap-0.5 pt-0 md:pt-3">
+              <span className="text-slate-800 font-bold text-[11px] sm:text-xs md:text-[13px] leading-tight">+91 7723020092</span>
+              <span className="text-slate-800 font-bold text-[11px] sm:text-xs md:text-[13px] leading-tight">+91 7723020091</span>
             </div>
           </div>
         </div>
+
       </motion.div>
     </div>
   );
 };
 
-export default Home;
+export default Thankyou;

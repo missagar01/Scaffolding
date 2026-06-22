@@ -3,14 +3,14 @@ import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import Footer from './Footer';
-import aboutBg from '../Assets/about_bg.avif';
+import aboutBg from '../Assets/bg.jpeg';
 
 const Layout = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
   // Slide list sequence matching the project presentation layout
-  const slides = ['/', '/about', '/support', '/portfolio', '/cuplock', '/props', '/basejack', '/ubasejack', '/pipe', '/walkway', '/shuttering', '/technical-standards', '/quality-testing', '/application-areas', '/dealer-contractor', '/procurement-checklist', '/why-choose'];
+  const slides = ['/', '/about', '/support', '/portfolio', '/cuplock', '/props', '/basejack', '/ubasejack', '/pipe', '/walkway', '/shuttering', '/technical-standards', '/quality-testing', '/application-areas', '/dealer-contractor', '/procurement-checklist', '/why-choose', '/thankyou'];
   const currentIndex = slides.indexOf(location.pathname);
 
   // Direction of navigation: 1 = forward (left swipe / right key), -1 = backward (right swipe / left key)

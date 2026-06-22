@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Package, Maximize, Layers, Truck, Headphones } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const useMobile = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -131,7 +132,14 @@ const ProcurementChecklist = () => {
             {steps.map((step, index) => {
               const Icon = step.icon;
               return (
-                <div key={step.id} className={`flex flex-col w-full max-w-[300px] sm:max-w-[320px] lg:max-w-[210px] xl:max-w-[220px] ${isMobile ? '' : step.offsetY} relative`}>
+                <motion.div 
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.2 }}
+                  key={step.id} 
+                  className={`flex flex-col w-full max-w-[300px] sm:max-w-[320px] lg:max-w-[210px] xl:max-w-[220px] ${isMobile ? '' : step.offsetY} relative`}
+                >
                   
                   {/* Card Main Body */}
                   <div className="bg-white rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.08)] relative pt-7 sm:pt-8 lg:pt-8 pb-4 sm:pb-5 lg:pb-5 px-4 sm:px-5 lg:px-4 xl:px-5 flex flex-col mt-4 lg:mt-6 border border-slate-100">
@@ -166,7 +174,7 @@ const ProcurementChecklist = () => {
 
                   </div>
 
-                </div>
+                </motion.div>
               );
             })}
           </div>

@@ -19,6 +19,7 @@ import QualityTestingAndInspection from './pages/Quality Testing & Inspection/Qu
 import DealerAndContractor from './pages/Dealer & Contractor Value Proposition/Dealer&Contractor';
 import ProcurementChecklist from './pages/Procurement Checklist for Buyers/ProcurementChecklist';
 import WhyChoose from './pages/Why Choose SAGAR SCAFFOLDING/WhyChoose';
+import Thankyou from './pages/Thank You/Thankyou';
 
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
           <Route path="/dealer-contractor" element={<DealerAndContractor />} />
           <Route path="/procurement-checklist" element={<ProcurementChecklist />} />
           <Route path="/why-choose" element={<WhyChoose />} />
+          <Route path="/thankyou" element={<Thankyou />} />
           <Route path="*" element={<Home />} />
         </Route>
       </Routes>
