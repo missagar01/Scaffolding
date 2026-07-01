@@ -30,6 +30,10 @@ const AdjustableUBaseJack = () => {
         const availableHeight = height - 240;
         const targetHeight = 410; // compact mobile content height
         let factor = availableHeight / targetHeight;
+        // Also bound by width for tall/narrow Android phones
+        const availableWidth = width - 32;
+        const targetWidth = 340;
+        factor = Math.min(factor, availableWidth / targetWidth);
         setScaleFactor(Math.max(0.65, Math.min(1, factor)));
       } else {
         // Desktop screens: horizontal layout
@@ -120,6 +124,15 @@ const AdjustableUBaseJack = () => {
                         Sagar Adjustable U-Base Jacks are built for high work capacity at demanding project sites. Useful at the top support zone of scaffolding/shuttering assemblies, they are designed to provide strong construction support and are suitable for both industrial and construction projects.
                       </p>
 
+                      {/* Graphic display banner */}
+                      <div className="w-fit mx-auto h-[160px] rounded-xl overflow-hidden border border-slate-200/60 bg-white shadow-sm relative mt-0.5 mb-1.5 flex items-center justify-center p-1.5">
+                        <img 
+                          src={uHeadImg} 
+                          alt="Adjustable U-Base Jack" 
+                          className="h-full object-contain" 
+                        />
+                      </div>
+
                       <div className="bg-white border border-slate-200/80 rounded-lg p-2.5 shadow-xs w-full text-[10px] text-slate-600 space-y-1.5 mt-0.5">
                         <div className="flex justify-between border-b border-slate-100 pb-1">
                           <span className="font-semibold text-slate-700">Solid Rod:</span>
@@ -141,15 +154,6 @@ const AdjustableUBaseJack = () => {
                           <span className="font-semibold text-slate-700">Key Features:</span>
                           <span className="text-[#8c1d21] font-bold">Corrosion resistant, high capacity</span>
                         </div>
-                      </div>
-
-                      {/* Graphic display banner */}
-                      <div className="w-fit mx-auto h-[160px] rounded-xl overflow-hidden border border-slate-200/60 bg-white shadow-sm relative mt-0.5 flex items-center justify-center p-1.5">
-                        <img 
-                          src={uHeadImg} 
-                          alt="Adjustable U-Base Jack" 
-                          className="h-full object-contain" 
-                        />
                       </div>
 
                      
@@ -215,6 +219,15 @@ const AdjustableUBaseJack = () => {
                         The table below lists the physical dimensions and weight configurations for Sagar Adjustable U-Base Jacks. Designed to ensure stable load transfers.
                       </p>
 
+                      {/* Graphic display banner */}
+                      <div className="w-fit mx-auto h-[160px] rounded-xl overflow-hidden border border-slate-200/60 bg-white shadow-sm relative mt-0.5 mb-1.5 flex items-center justify-center p-1.5">
+                        <img 
+                          src={uHeadImg} 
+                          alt="Adjustable U-Base Jack" 
+                          className="h-full object-contain" 
+                        />
+                      </div>
+
                       <div className="bg-white border border-slate-200/80 rounded-lg overflow-hidden shadow-xs w-full mt-0.5">
                         <table className="cuplock-table-mobile w-full text-left border-collapse">
                           <thead>
@@ -234,15 +247,6 @@ const AdjustableUBaseJack = () => {
                             ))}
                           </tbody>
                         </table>
-                      </div>
-
-                      {/* Graphic display banner */}
-                      <div className="w-fit mx-auto h-[160px] rounded-xl overflow-hidden border border-slate-200/60 bg-white shadow-sm relative mt-0.5 flex items-center justify-center p-1.5">
-                        <img 
-                          src={uHeadImg} 
-                          alt="Adjustable U-Base Jack" 
-                          className="h-full object-contain" 
-                        />
                       </div>
 
                       <span className="text-[8px] text-slate-400 font-normal italic block">

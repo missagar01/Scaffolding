@@ -16,7 +16,7 @@ const Thankyou = () => {
           className="flex flex-col items-center mb-6 sm:mb-8 z-10"
         >
           <div className="bg-white/60 backdrop-blur-md rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.05)] border border-slate-200/40 overflow-hidden flex items-center justify-center transition-all hover:scale-105 duration-300">
-            <img src={Logo} alt="Sagar Scaffolding Logo" className="w-[200px] sm:w-[260px] md:w-[450px] lg:w-[550px] h-auto object-cover select-none pointer-events-none" />
+            <img src={Logo} alt="Sagar Scaffolding Logo" className="w-[280px] sm:w-[320px] md:w-[450px] lg:w-[550px] h-auto object-cover select-none pointer-events-none" />
           </div>
         </motion.div>
 

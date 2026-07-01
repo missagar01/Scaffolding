@@ -30,6 +30,10 @@ const AdjustableProps = () => {
         const availableHeight = height - 240;
         const targetHeight = 410; // compact mobile content height
         let factor = availableHeight / targetHeight;
+        // Also bound by width for tall/narrow Android phones
+        const availableWidth = width - 32;
+        const targetWidth = 340;
+        factor = Math.min(factor, availableWidth / targetWidth);
         setScaleFactor(Math.max(0.65, Math.min(1, factor)));
       } else {
         // Desktop screens: horizontal layout
@@ -122,6 +126,20 @@ const AdjustableProps = () => {
                         Sagar Adjustable Props are fabricated using premium steel pipes conforming to <strong>IS 1239/1161 YST 210 Standard</strong>. Designed as highly durable telescopic shoring props, they are capable of adjusting to multiple height levels for support during construction.
                       </p>
 
+                      {/* Graphic display banner */}
+                      <div className="w-full h-[160px] rounded-xl overflow-hidden border border-slate-200/60 bg-white shadow-sm relative mt-0.5 mb-1.5">
+                        <img 
+                          src={propsImg} 
+                          alt="Adjustable Props" 
+                          className="w-full h-full object-cover scale-[1.18] transition-transform duration-500" 
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-900/0 opacity-90" />
+                        <div className="absolute bottom-2 left-3 right-3 text-white">
+                          <span className="text-[9px] font-bold tracking-wide uppercase">Adjustable Props</span>
+                          <p className="text-[7.5px] text-slate-300">Telescopic shoring system with precision pin lock</p>
+                        </div>
+                      </div>
+
                       <div className="bg-white border border-slate-200/80 rounded-lg p-2.5 shadow-xs w-full text-[10px] text-slate-600 space-y-1.5 mt-0.5">
                         <div className="flex justify-between border-b border-slate-100 pb-1">
                           <span className="font-semibold text-slate-700">Outer Tube:</span>
@@ -142,20 +160,6 @@ const AdjustableProps = () => {
                         <div className="flex justify-between">
                           <span className="font-semibold text-slate-700">Threading System:</span>
                           <span className="text-[#8c1d21] font-bold">Precision double-start ACME threads</span>
-                        </div>
-                      </div>
-
-                      {/* Graphic display banner */}
-                      <div className="w-full h-[160px] rounded-xl overflow-hidden border border-slate-200/60 bg-white shadow-sm relative mt-0.5">
-                        <img 
-                          src={propsImg} 
-                          alt="Adjustable Props" 
-                          className="w-full h-full object-cover scale-[1.18] transition-transform duration-500" 
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-900/0 opacity-90" />
-                        <div className="absolute bottom-2 left-3 right-3 text-white">
-                          <span className="text-[9px] font-bold tracking-wide uppercase">Adjustable Props</span>
-                          <p className="text-[7.5px] text-slate-300">Telescopic shoring system with precision pin lock</p>
                         </div>
                       </div>
 
@@ -221,6 +225,20 @@ const AdjustableProps = () => {
                         The table below lists the standard physical sizes and approximate weights for our Adjustable Props. Custom sizes and special heavy-duty wall push-pull props can also be manufactured on request.
                       </p>
 
+                      {/* Graphic display banner */}
+                      <div className="w-full h-[160px] rounded-xl overflow-hidden border border-slate-200/60 bg-white shadow-sm relative mt-0.5 mb-1.5">
+                        <img 
+                          src={propsImg} 
+                          alt="Adjustable Props" 
+                          className="w-full h-full object-cover scale-[1.18] transition-transform duration-500" 
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-900/0 opacity-90" />
+                        <div className="absolute bottom-2 left-3 right-3 text-white">
+                          <span className="text-[9px] font-bold tracking-wide uppercase">Standard Prop Sizes</span>
+                          <p className="text-[7.5px] text-slate-300">Sizes ranges from 1.50 m up to 4.80 m</p>
+                        </div>
+                      </div>
+
                       <div className="bg-white border border-slate-200/80 rounded-lg overflow-hidden shadow-xs w-full mt-0.5">
                         <table className="cuplock-table-mobile w-full text-left border-collapse">
                           <thead>
@@ -242,20 +260,6 @@ const AdjustableProps = () => {
                             ))}
                           </tbody>
                         </table>
-                      </div>
-
-                      {/* Graphic display banner */}
-                      <div className="w-full h-[160px] rounded-xl overflow-hidden border border-slate-200/60 bg-white shadow-sm relative mt-0.5">
-                        <img 
-                          src={propsImg} 
-                          alt="Adjustable Props" 
-                          className="w-full h-full object-cover scale-[1.18] transition-transform duration-500" 
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-900/0 opacity-90" />
-                        <div className="absolute bottom-2 left-3 right-3 text-white">
-                          <span className="text-[9px] font-bold tracking-wide uppercase">Standard Prop Sizes</span>
-                          <p className="text-[7.5px] text-slate-300">Sizes ranges from 1.50 m up to 4.80 m</p>
-                        </div>
                       </div>
 
                       <span className="text-[8px] text-slate-400 font-normal italic block">

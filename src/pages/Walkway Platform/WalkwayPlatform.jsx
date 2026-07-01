@@ -55,6 +55,10 @@ const WalkwayPlatform = () => {
         const availableHeight = height - 240;
         const targetHeight = 440; // updated mobile content target height
         let factor = availableHeight / targetHeight;
+        // Also bound by width for tall/narrow Android phones
+        const availableWidth = width - 32;
+        const targetWidth = 340;
+        factor = Math.min(factor, availableWidth / targetWidth);
         setScaleFactor(Math.max(0.65, Math.min(1, factor)));
       } else {
         // Desktop screens: horizontal layout
@@ -75,7 +79,7 @@ const WalkwayPlatform = () => {
   ];
 
   return (
-    <div className="relative w-full h-full flex items-center justify-center px-6 sm:px-12 md:px-16 lg:px-20 overflow-hidden select-none">
+    <div className="relative w-full h-full flex items-center justify-center px-6 sm:px-12 md:px-16 lg:px-20 overflow-hidden select-none pb-20 md:pb-24 pt-4">
 
       {/* Main Container with height auto-adjustment */}
       <div
@@ -105,8 +109,8 @@ const WalkwayPlatform = () => {
             <button
               onClick={() => setActiveTab('tech')}
               className={`py-1.5 px-2 md:py-2 md:px-4 text-[10px] sm:text-xs md:text-sm font-bold transition-all rounded-lg border shadow-xs whitespace-nowrap ${activeTab === 'tech'
-                  ? "bg-[#8c1d21] text-white border-[#8c1d21]"
-                  : "bg-white text-slate-600 border-slate-200 hover:text-slate-800 hover:bg-slate-50"
+                ? "bg-[#8c1d21] text-white border-[#8c1d21]"
+                : "bg-white text-slate-600 border-slate-200 hover:text-slate-800 hover:bg-slate-50"
                 }`}
             >
               Technical Specs
@@ -114,8 +118,8 @@ const WalkwayPlatform = () => {
             <button
               onClick={() => setActiveTab('sizes')}
               className={`py-1.5 px-2 md:py-2 md:px-4 text-[10px] sm:text-xs md:text-sm font-bold transition-all rounded-lg border shadow-xs whitespace-nowrap ${activeTab === 'sizes'
-                  ? "bg-[#8c1d21] text-white border-[#8c1d21]"
-                  : "bg-white text-slate-600 border-slate-200 hover:text-slate-800 hover:bg-slate-50"
+                ? "bg-[#8c1d21] text-white border-[#8c1d21]"
+                : "bg-white text-slate-600 border-slate-200 hover:text-slate-800 hover:bg-slate-50"
                 }`}
             >
               Standard Sizes
@@ -141,6 +145,20 @@ const WalkwayPlatform = () => {
                         <Shield size={12} className="inline-block text-[#8c1d21] mr-1.5 align-middle shrink-0" />
                         Sagar Walkway Jali is manufactured with high precision using heavy-duty steel square tubes. Built to ensure stability, high weight capacity, and optimal site safety.
                       </p>
+
+                      {/* Graphic display banner */}
+                      <div className="w-full h-[120px] rounded-xl overflow-hidden border border-slate-200/60 bg-white shadow-sm relative mt-0.5 mb-1.5">
+                        <img
+                          src={walkwaysImg}
+                          alt="Walkway Platform"
+                          className="w-full h-full object-cover scale-[1.05] transition-transform duration-500"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-900/0 opacity-90" />
+                        <div className="absolute bottom-2 left-3 right-3 text-white">
+                          <span className="text-[9px] font-bold tracking-wide uppercase">Walkway Platform</span>
+                          <p className="text-[7.5px] text-slate-300">Heavy-duty structural planks and walkway systems</p>
+                        </div>
+                      </div>
 
                       <div className="bg-white border border-slate-200/80 rounded-lg p-2.5 shadow-xs w-full text-[10px] text-slate-600 space-y-1.5 mt-0.5">
                         <div className="flex justify-between border-b border-slate-100 pb-1">
@@ -197,20 +215,6 @@ const WalkwayPlatform = () => {
                           <span className="text-blue-600 text-[7.5px] leading-tight">Ensuring maximum functional utility and versatility</span>
                         </motion.div>
                       </motion.div>
-
-                      {/* Graphic display banner */}
-                      <div className="w-full h-[120px] rounded-xl overflow-hidden border border-slate-200/60 bg-white shadow-sm relative mt-0.5">
-                        <img
-                          src={walkwaysImg}
-                          alt="Walkway Platform"
-                          className="w-full h-full object-cover scale-[1.05] transition-transform duration-500"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-900/0 opacity-90" />
-                        <div className="absolute bottom-2 left-3 right-3 text-white">
-                          <span className="text-[9px] font-bold tracking-wide uppercase">Walkway Platform</span>
-                          <p className="text-[7.5px] text-slate-300">Heavy-duty structural planks and walkway systems</p>
-                        </div>
-                      </div>
 
                     </div>
                   ) : (
@@ -308,6 +312,20 @@ const WalkwayPlatform = () => {
                         The table below lists the physical dimensions and weight configuration for Sagar Walkway Platforms. Custom sizes can be custom-fabricated to specifications on request.
                       </p>
 
+                      {/* Graphic display banner */}
+                      <div className="w-full h-[120px] rounded-xl overflow-hidden border border-slate-200/60 bg-white shadow-sm relative mt-0.5 mb-1.5">
+                        <img
+                          src={walkwaysImg}
+                          alt="Walkway Platform"
+                          className="w-full h-full object-cover scale-[1.05] transition-transform duration-500"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-900/0 opacity-90" />
+                        <div className="absolute bottom-2 left-3 right-3 text-white">
+                          <span className="text-[9px] font-bold tracking-wide uppercase">Standard Walkway Sizes</span>
+                          <p className="text-[7.5px] text-slate-300">Sizes ranges from 2.5 m length up to custom configurations</p>
+                        </div>
+                      </div>
+
                       <div className="bg-white border border-slate-200/80 rounded-lg overflow-hidden shadow-xs w-full mt-0.5 h-[120px] overflow-y-auto scrollbar-hide">
                         <table className="cuplock-table-mobile w-full text-left border-collapse">
                           <thead>
@@ -330,25 +348,6 @@ const WalkwayPlatform = () => {
                           </tbody>
                         </table>
                       </div>
-
-                      {/* Graphic display banner */}
-                      <div className="w-full h-[120px] rounded-xl overflow-hidden border border-slate-200/60 bg-white shadow-sm relative mt-0.5">
-                        <img
-                          src={walkwaysImg}
-                          alt="Walkway Platform"
-                          className="w-full h-full object-cover scale-[1.05] transition-transform duration-500"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-900/0 opacity-90" />
-                        <div className="absolute bottom-2 left-3 right-3 text-white">
-                          <span className="text-[9px] font-bold tracking-wide uppercase">Standard Walkway Sizes</span>
-                          <p className="text-[7.5px] text-slate-300">Sizes ranges from 2.5 m length up to custom configurations</p>
-                        </div>
-                      </div>
-
-                      <span className="text-[8px] text-slate-400 font-normal italic block mt-0.5">
-                        <Info size={9} className="inline-block mr-1 align-middle shrink-0" />
-                        Custom dimensions and colors can also be fabricated on request.
-                      </span>
                     </div>
                   ) : (
                     /* Desktop view - only table without local image */
@@ -387,10 +386,6 @@ const WalkwayPlatform = () => {
                           </tbody>
                         </table>
                       </div>
-
-                      <span className="text-[8px] sm:text-[9px] text-slate-400 font-normal italic flex items-center gap-1 mt-1">
-                        <Info size={10} /> Custom dimensions and colors can also be fabricated on request.
-                      </span>
                     </div>
                   )}
                 </motion.div>

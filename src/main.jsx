@@ -3,6 +3,24 @@ import { createRoot } from 'react-dom/client';
 import App from './App.jsx';
 import './index.css';
 
+import logoUrl from './Assets/Logo.png';
+import newBgUrl from './Assets/Newbg.jpeg';
+import aboutBgUrl from './Assets/Bg.jpeg';
+
+const preloadImage = (src) => {
+  const link = document.createElement('link');
+  link.rel = 'preload';
+  link.as = 'image';
+  link.href = src;
+  document.head.appendChild(link);
+};
+
+// Eagerly preload critical heavy images so they start downloading immediately 
+// before React even mounts. This prevents the "flash of unstyled content" on Vercel.
+preloadImage(logoUrl);
+preloadImage(newBgUrl);
+preloadImage(aboutBgUrl);
+
 // Intercept localStorage modifications to dispatch custom 'storage' events on the local window.
 // This ensures that all components listening for localStorage changes (like Sidebar counts)
 // stay in sync reactively without requiring full page refreshes.

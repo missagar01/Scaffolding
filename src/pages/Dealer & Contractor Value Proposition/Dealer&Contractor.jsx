@@ -160,12 +160,12 @@ const DealerAndContractor = () => {
   const iconSz  = isMobile ? 10  : 13;
 
   return (
-    <div className="relative w-full h-full flex items-center justify-center px-6 sm:px-12 md:px-16 lg:px-20 overflow-hidden select-none">
+    <div className="relative w-full h-full flex flex-col items-center justify-center px-6 sm:px-12 md:px-16 lg:px-20 overflow-hidden select-none pb-20 md:pb-24 pt-8 md:pt-12">
 
       {/* ── SCALED WRAPPER ── */}
       <div
         style={{ transform: `scale(${scaleFactor})`, transformOrigin: 'center' }}
-        className="relative z-10 w-full max-w-5xl flex flex-col py-1 md:py-2 mt-[-3vh] md:mt-[-2vh] transition-transform duration-300"
+        className="relative z-10 w-full max-w-5xl flex flex-col transition-transform duration-300 mx-auto"
       >
 
         {/* ── HEADER ── */}

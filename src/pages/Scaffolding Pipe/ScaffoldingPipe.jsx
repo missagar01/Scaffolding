@@ -30,6 +30,10 @@ const ScaffoldingPipe = () => {
         const availableHeight = height - 240;
         const targetHeight = 410; // compact mobile content height
         let factor = availableHeight / targetHeight;
+        // Also bound by width for tall/narrow Android phones
+        const availableWidth = width - 32;
+        const targetWidth = 340;
+        factor = Math.min(factor, availableWidth / targetWidth);
         setScaleFactor(Math.max(0.65, Math.min(1, factor)));
       } else {
         // Desktop screens: horizontal layout
@@ -127,6 +131,20 @@ const ScaffoldingPipe = () => {
                         Sagar Scaffolding Pipes are a major structural component for scaffolding and support assemblies. They are highly reliable, efficient, designed for construction and industrial usage, and support flexible fabrication layouts.
                       </p>
 
+                      {/* Graphic display banner */}
+                      <div className="w-full h-[120px] rounded-xl overflow-hidden border border-slate-200/60 bg-white shadow-sm relative mt-0.5 mb-1.5">
+                        <img 
+                          src={pipeImg} 
+                          alt="Scaffolding Pipe" 
+                          className="w-full h-full object-cover scale-[1.18] transition-transform duration-500" 
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-900/0 opacity-90" />
+                        <div className="absolute bottom-2 left-3 right-3 text-white">
+                          <span className="text-[9px] font-bold tracking-wide uppercase">Scaffolding Pipe</span>
+                          <p className="text-[7.5px] text-slate-300">Galvanized structural steel tubing components</p>
+                        </div>
+                      </div>
+
                       <div className="bg-white border border-slate-200/80 rounded-lg p-2.5 shadow-xs w-full text-[10px] text-slate-600 space-y-1.5 mt-0.5">
                         <div className="flex justify-between border-b border-slate-100 pb-1">
                           <span className="font-semibold text-slate-700">Outer Diameter:</span>
@@ -147,20 +165,6 @@ const ScaffoldingPipe = () => {
                         <div className="flex justify-between">
                           <span className="font-semibold text-slate-700">Key Features:</span>
                           <span className="text-[#8c1d21] font-bold">Reliable, site stability</span>
-                        </div>
-                      </div>
-
-                      {/* Graphic display banner */}
-                      <div className="w-full h-[120px] rounded-xl overflow-hidden border border-slate-200/60 bg-white shadow-sm relative mt-0.5">
-                        <img 
-                          src={pipeImg} 
-                          alt="Scaffolding Pipe" 
-                          className="w-full h-full object-cover scale-[1.18] transition-transform duration-500" 
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-900/0 opacity-90" />
-                        <div className="absolute bottom-2 left-3 right-3 text-white">
-                          <span className="text-[9px] font-bold tracking-wide uppercase">Scaffolding Pipe</span>
-                          <p className="text-[7.5px] text-slate-300">Galvanized structural steel tubing components</p>
                         </div>
                       </div>
 
@@ -227,6 +231,20 @@ const ScaffoldingPipe = () => {
                         The table below lists the physical dimensions and configurations for Sagar Scaffolding Pipes. Custom lengths are available on request.
                       </p>
 
+                      {/* Graphic display banner */}
+                      <div className="w-full h-[120px] rounded-xl overflow-hidden border border-slate-200/60 bg-white shadow-sm relative mt-0.5 mb-1.5">
+                        <img 
+                          src={pipeImg} 
+                          alt="Scaffolding Pipe" 
+                          className="w-full h-full object-cover scale-[1.18] transition-transform duration-500" 
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-900/0 opacity-90" />
+                        <div className="absolute bottom-2 left-3 right-3 text-white">
+                          <span className="text-[9px] font-bold tracking-wide uppercase">Standard Pipe Sizes</span>
+                          <p className="text-[7.5px] text-slate-300">Sizes ranges from 3 ft up to 20 ft</p>
+                        </div>
+                      </div>
+
                       <div className="bg-white border border-slate-200/80 rounded-lg overflow-hidden shadow-xs w-full mt-0.5 h-[120px] overflow-y-auto scrollbar-hide">
                         <table className="cuplock-table-mobile w-full text-left border-collapse">
                           <thead>
@@ -246,20 +264,6 @@ const ScaffoldingPipe = () => {
                             ))}
                           </tbody>
                         </table>
-                      </div>
-
-                      {/* Graphic display banner */}
-                      <div className="w-full h-[120px] rounded-xl overflow-hidden border border-slate-200/60 bg-white shadow-sm relative mt-0.5">
-                        <img 
-                          src={pipeImg} 
-                          alt="Scaffolding Pipe" 
-                          className="w-full h-full object-cover scale-[1.18] transition-transform duration-500" 
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-900/0 opacity-90" />
-                        <div className="absolute bottom-2 left-3 right-3 text-white">
-                          <span className="text-[9px] font-bold tracking-wide uppercase">Standard Pipe Sizes</span>
-                          <p className="text-[7.5px] text-slate-300">Sizes ranges from 3 ft up to 20 ft</p>
-                        </div>
                       </div>
 
                       <span className="text-[8px] text-slate-400 font-normal italic block mt-0.5">

@@ -5,22 +5,22 @@ import logo from '../../Assets/Logo.png';
 
 const Home = () => {
   return (
-    <div className="relative w-full h-full flex flex-col items-center justify-center overflow-hidden select-none">
+    <div className="relative w-full h-full flex flex-col items-center justify-center overflow-hidden select-none pb-20 md:pb-24 pt-4">
 
-      <div className="relative z-10 flex flex-col items-center justify-center w-full max-w-4xl px-6 text-center -mt-16 sm:-mt-24 md:-mt-32">
+      <div className="relative z-10 flex-1 flex flex-col items-center justify-center w-full max-w-4xl px-6 text-center mx-auto">
 
         {/* Top Section: Brand Logo */}
         <motion.div
           initial={{ opacity: 0, y: -15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="flex flex-col items-center mb-6 sm:mb-8 z-10"
+          className="flex flex-col items-center mb-3 sm:mb-4 xl:mb-8 z-10"
         >
           <div className="bg-white/60 backdrop-blur-md rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.05)] border border-slate-200/40 overflow-hidden flex items-center justify-center transition-all hover:scale-105 duration-300">
             <img
               src={logo}
               alt="Sagar TMT & Pipes Logo"
-              className="w-[240px] sm:w-[300px] md:w-[450px] lg:w-[550px] h-auto object-cover select-none pointer-events-none"
+              className="w-auto h-auto max-w-[240px] sm:max-w-[300px] md:max-w-[380px] lg:max-w-[450px] xl:max-w-[550px] max-h-[18vh] object-contain select-none pointer-events-none"
             />
           </div>
         </motion.div>
@@ -30,13 +30,13 @@ const Home = () => {
           initial={{ opacity: 0, scale: 0.97 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-          className="flex flex-col items-center w-full mb-6 sm:mb-8"
+          className="flex flex-col items-center w-full mb-3 sm:mb-4 xl:mb-8"
         >
           <div className="w-[50%] sm:w-[45%] h-[1px] bg-slate-400/80 mb-2" />
-          <h1 className="text-[#8c1d21] text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-1 select-text font-serif leading-tight">
+          <h1 className="text-[#8c1d21] text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold tracking-tight mb-1 select-text font-serif leading-tight">
             Sourabh Rolling Mills
           </h1>
-          <h2 className="text-slate-800 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium tracking-wide mb-2 select-text leading-tight">
+          <h2 className="text-slate-800 text-2xl sm:text-3xl md:text-4xl xl:text-5xl font-medium tracking-wide mb-2 select-text leading-tight">
             Pvt Ltd
           </h2>
           <div className="relative w-[50%] sm:w-[45%] h-[1px] bg-slate-400/80 mt-1">
@@ -62,10 +62,10 @@ const Home = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-        className="absolute bottom-20 md:bottom-24 left-0 right-0 mx-auto w-fit max-w-[95vw] md:max-w-none border-t border-slate-200/50 pt-5 md:pt-6 grid grid-cols-2 md:flex md:flex-row justify-center items-start md:items-stretch gap-x-4 gap-y-5 md:gap-8 lg:gap-10 text-left z-20 px-4 md:px-0"
+        className="w-fit mx-auto max-w-[95vw] md:max-w-none border-t border-slate-200/50 pt-4 md:pt-4 xl:pt-6 grid grid-cols-2 md:flex md:flex-row justify-center items-start md:items-stretch gap-x-4 gap-y-4 md:gap-6 xl:gap-10 text-left z-20 px-4 md:px-0 mt-4 md:mt-0"
       >
         {/* Est & Location */}
-        <div className="flex items-center md:items-start gap-2.5 shrink-0 w-full md:w-auto">
+        <div className="flex items-start gap-2.5 shrink-0 w-full md:w-auto">
           <div className="w-9 h-9 md:w-10 md:h-10 rounded-xl bg-gradient-to-br from-white to-[#fff5f5] flex items-center justify-center shrink-0 border border-[#8c1d21]/15 shadow-sm">
             <Calendar className="w-4.5 h-4.5 md:w-5 md:h-5 text-[#8c1d21]" />
           </div>
@@ -79,7 +79,7 @@ const Home = () => {
         <div className="hidden md:block w-[1px] bg-slate-200/80 my-1" />
 
         {/* Direct Email */}
-        <div className="flex items-center md:items-start gap-2.5 shrink-0 w-full md:w-auto">
+        <div className="flex items-start gap-2.5 shrink-0 w-full md:w-auto">
           <div className="w-9 h-9 md:w-10 md:h-10 rounded-xl bg-gradient-to-br from-white to-[#fff5f5] flex items-center justify-center shrink-0 border border-[#8c1d21]/15 shadow-sm">
             <Mail className="w-4.5 h-4.5 md:w-5 md:h-5 text-[#8c1d21]" />
           </div>

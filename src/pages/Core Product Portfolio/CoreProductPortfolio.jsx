@@ -144,10 +144,13 @@ const CoreProductPortfolio = () => {
     <div className="relative w-full h-full flex items-center justify-center px-6 sm:px-12 md:px-16 lg:px-20 overflow-hidden select-none">
       
       {/* Main Grid/Flex Container for Split Layout */}
-      <div className="relative z-10 w-full max-w-6xl flex flex-col md:flex-row items-center justify-center gap-4 md:gap-10 lg:gap-12 py-2 md:py-10 mt-[-3vh] md:mt-[-2vh]">
+      <div 
+        style={{ transform: `scale(${scaleFactor})`, transformOrigin: 'center' }}
+        className="relative z-10 w-full max-w-6xl flex flex-col md:flex-row items-center justify-center gap-4 md:gap-10 lg:gap-12 py-2 md:py-10 mt-[-3vh] md:mt-[-2vh] transition-transform duration-300"
+      >
         
         {/* Left Side: Product descriptions list */}
-        <div className="w-full md:max-w-[55%] flex flex-col justify-center">
+        <div className="w-full md:max-w-[55%] flex flex-col justify-center shrink-0">
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -199,9 +202,8 @@ const CoreProductPortfolio = () => {
         {/* Right Side: Horizontal 3D Card Stack Carousel */}
         <div className="w-full md:w-[45%] flex flex-col items-center justify-center shrink-0 mt-4 md:mt-0">
           
-          {/* Stack Container with dynamic scaling */}
+          {/* Stack Container without dynamic scaling (moved to parent) */}
           <div 
-            style={{ transform: `scale(${scaleFactor})`, transformOrigin: 'center' }}
             className={`relative flex items-center justify-center ${
               isMobile ? "w-[320px] h-[220px]" : "w-[440px] h-[300px]"
             }`}

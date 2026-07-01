@@ -26,12 +26,16 @@ const TechnicalStandardsAndMaterialPositioning = () => {
         const availableHeight = height - 120;
         const targetHeight = 460;
         let factor = availableHeight / targetHeight;
+        // Also bound by width for tall/narrow Android phones
+        const availableWidth = width - 32;
+        const targetWidth = 340;
+        factor = Math.min(factor, availableWidth / targetWidth);
         setScaleFactor(Math.max(0.75, Math.min(1, factor)));
       } else {
         const availableHeight = height - 120;
-        const targetHeight = 530;
+        const targetHeight = 600;
         const factor = availableHeight / targetHeight;
-        setScaleFactor(Math.max(0.7, Math.min(1.05, factor)));
+        setScaleFactor(Math.max(0.65, Math.min(0.88, factor)));
       }
     };
 
@@ -82,8 +86,8 @@ const TechnicalStandardsAndMaterialPositioning = () => {
 
       {/* Main Container with height auto-adjustment */}
       <div
-        style={{ transform: `scale(${scaleFactor})`, transformOrigin: 'center' }}
-        className="relative z-10 w-full max-w-6xl flex flex-col gap-2 md:gap-5 py-0.5 md:py-2 mt-[-3vh] md:mt-[-2vh] transition-transform duration-300 mx-auto"
+        style={{ transform: `scale(${scaleFactor})`, transformOrigin: 'top center' }}
+        className="relative z-10 w-full max-w-6xl flex flex-col gap-2 md:gap-4 py-0.5 md:py-2 mt-[-2vh] md:mt-[-3vh] lg:mt-[-4vh] transition-transform duration-300 mx-auto"
       >
 
         {/* Header Block */}
@@ -102,7 +106,7 @@ const TechnicalStandardsAndMaterialPositioning = () => {
 
           {/* Column 1: Specification Rules — Centered card matching sketch */}
           <div className="md:col-span-5 flex flex-col gap-0.5 md:gap-2">
-            <div className="bg-white border-2 border-[#8c1d21]/20 rounded-2xl md:rounded-3xl p-3 md:p-6 shadow-xs flex-1 flex flex-col items-center justify-center relative overflow-hidden">
+            <div className="bg-white border-2 border-[#8c1d21]/20 rounded-2xl md:rounded-3xl p-3 md:p-4 lg:p-5 shadow-xs flex-1 flex flex-col items-center justify-center relative overflow-hidden">
 
               {/* Title */}
               <div className="flex flex-col items-center mb-2 md:mb-4">
@@ -146,10 +150,10 @@ const TechnicalStandardsAndMaterialPositioning = () => {
                   key={i}
                   className={`grid grid-cols-2 border-b border-slate-100 last:border-b-0 ${i % 2 === 0 ? 'bg-white' : 'bg-slate-50/40'}`}
                 >
-                  <div className="px-3 md:px-5 py-2.5 md:py-3.5 text-[9px] md:text-[13px] text-slate-700 font-medium">
+                  <div className="px-3 md:px-5 py-2.5 md:py-2 lg:py-2.5 text-[9px] md:text-[11px] lg:text-[12px] text-slate-700 font-medium">
                     {item.product}
                   </div>
-                  <div className="px-3 md:px-5 py-2.5 md:py-3.5 text-[9px] md:text-[13px] text-slate-600">
+                  <div className="px-3 md:px-5 py-2.5 md:py-2 lg:py-2.5 text-[9px] md:text-[11px] lg:text-[12px] text-slate-600">
                     {item.spec}
                   </div>
                 </div>
@@ -166,7 +170,7 @@ const TechnicalStandardsAndMaterialPositioning = () => {
             return (
               <div
                 key={idx}
-                className={`${badge.bgColor} rounded-xl md:rounded-2xl px-4 md:px-8 py-3 md:py-5 flex flex-col items-center justify-center gap-0.5 md:gap-1.5 text-white shadow-md cursor-default min-w-[80px] md:min-w-[150px]`}
+                className={`${badge.bgColor} rounded-xl md:rounded-2xl px-4 md:px-6 lg:px-8 py-3 md:py-3 lg:py-4 flex flex-col items-center justify-center gap-0.5 md:gap-1.5 text-white shadow-md cursor-default min-w-[80px] md:min-w-[130px] lg:min-w-[150px]`}
               >
                 <span className="font-extrabold text-sm md:text-2xl uppercase tracking-tight">{badge.title}</span>
                 <span className="text-[7px] md:text-[11px] text-white/85 text-center leading-tight max-w-[70px] md:max-w-[130px] font-medium">{badge.subtitle}</span>

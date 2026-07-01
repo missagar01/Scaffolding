@@ -51,14 +51,18 @@ const ShutteringMaterialAndSupportUse = () => {
 
       if (width < 768) {
         const availableHeight = height - 120;
-        const targetHeight = 440; // compact mobile content height
+        const targetHeight = 520;
         let factor = availableHeight / targetHeight;
-        setScaleFactor(Math.max(0.75, Math.min(1, factor)));
+        // Also bound by width for tall/narrow Android phones
+        const availableWidth = width - 32;
+        const targetWidth = 340;
+        factor = Math.min(factor, availableWidth / targetWidth);
+        setScaleFactor(Math.max(0.6, Math.min(1.05, factor)));
       } else {
-        const availableHeight = height - 120;
-        const targetHeight = 530;
+        const availableHeight = height - 180;
+        const targetHeight = 640; 
         const factor = availableHeight / targetHeight;
-        setScaleFactor(Math.max(0.7, Math.min(1.05, factor)));
+        setScaleFactor(Math.max(0.7, Math.min(1, factor)));
       }
     };
 
@@ -139,12 +143,12 @@ const ShutteringMaterialAndSupportUse = () => {
   }, [activePillar]);
 
   return (
-    <div className="relative w-full h-full flex items-center justify-center px-6 sm:px-12 md:px-16 lg:px-20 overflow-hidden select-none">
+    <div className="relative w-full h-full flex flex-col items-center justify-center px-6 sm:px-12 md:px-16 lg:px-20 overflow-hidden select-none pb-12 md:pb-24 pt-4 md:pt-12">
 
       {/* Main Container with height auto-adjustment */}
       <div
         style={{ transform: `scale(${scaleFactor})`, transformOrigin: 'center' }}
-        className="relative z-10 w-full max-w-6xl flex flex-col gap-2 md:gap-6 py-0.5 md:py-2 mt-[-3vh] md:mt-[-2vh] transition-transform duration-300 mx-auto"
+        className="relative z-10 w-full max-w-6xl flex flex-col gap-2 md:gap-3 lg:gap-4 transition-transform duration-300 mx-auto"
       >
 
         {/* Header Block matching other pages */}
@@ -162,7 +166,7 @@ const ShutteringMaterialAndSupportUse = () => {
         </div>
 
         {/* Infographic Area: 3 columns matching the sketch */}
-        <div className="flex flex-col md:grid md:grid-cols-12 gap-2 md:gap-6 items-stretch shrink-0">
+        <div className="flex flex-col md:grid md:grid-cols-12 gap-2 md:gap-4 items-stretch shrink-0">
 
           {/* Column 1 (Left): Material & Support points */}
           <div className="md:col-span-6 flex flex-col gap-0.5 md:gap-2">
@@ -175,15 +179,15 @@ const ShutteringMaterialAndSupportUse = () => {
               variants={containerVariants}
               initial="hidden"
               animate="show"
-              className="bg-white border border-slate-200/80 rounded-xl md:rounded-2xl p-2.5 md:p-5 shadow-xs flex-1 flex flex-col justify-center gap-1.5 md:gap-4"
+              className="bg-white border border-slate-200/80 rounded-xl md:rounded-2xl p-2.5 md:p-3 lg:p-4 shadow-xs flex-1 flex flex-col justify-center gap-1.5 md:gap-2 lg:gap-3"
             >
               {materialPoints.map((item, i) => (
                 <motion.div
                   key={i}
                   variants={itemVariants}
-                  className="flex items-start gap-1.5 md:gap-3.5 text-[10px] md:text-[13px] text-slate-600 leading-tight md:leading-normal"
+                  className="flex items-start gap-1.5 md:gap-2.5 text-[10px] md:text-[11px] lg:text-[12px] text-slate-600 leading-tight md:leading-normal"
                 >
-                  <div className="w-3.5 h-3.5 md:w-6 md:h-6 rounded-full bg-[#8c1d21]/10 text-[#8c1d21] border border-[#8c1d21]/30 flex items-center justify-center font-bold text-[8px] md:text-xs shrink-0 mt-0.5">
+                  <div className="w-3.5 h-3.5 md:w-5 md:h-5 lg:w-6 lg:h-6 rounded-full bg-[#8c1d21]/10 text-[#8c1d21] border border-[#8c1d21]/30 flex items-center justify-center font-bold text-[8px] md:text-[10px] lg:text-xs shrink-0 mt-0.5">
                     {i + 1}
                   </div>
                   <span>
@@ -203,7 +207,7 @@ const ShutteringMaterialAndSupportUse = () => {
               <div className="absolute bottom-0 left-0 w-2/3 h-[1px] md:h-[1.5px] bg-[#8c1d21]" />
             </div>
 
-            <div className="flex flex-col sm:flex-row md:flex-row gap-2 md:gap-3.5 bg-white border border-slate-200/80 rounded-xl md:rounded-2xl p-2.5 md:p-4 shadow-xs flex-1 items-stretch justify-center relative min-h-[140px] md:min-h-[220px]">
+            <div className="flex flex-col sm:flex-row md:flex-row gap-2 md:gap-3.5 bg-white border border-slate-200/80 rounded-xl md:rounded-2xl p-2.5 md:p-3 lg:p-4 shadow-xs flex-1 items-stretch justify-center relative min-h-[140px] md:min-h-[200px]">
 
               {/* Stacked circles panel */}
               <div className="flex flex-row sm:flex-col md:flex-col justify-around items-center gap-2 relative z-10 shrink-0 min-w-[70px]">
@@ -219,9 +223,9 @@ const ShutteringMaterialAndSupportUse = () => {
                       onMouseEnter={() => setActivePillar(idx)}
                       whileHover={{ scale: 1.08 }}
                       whileTap={{ scale: 0.95 }}
-                      className={`w-8 h-8 md:w-12 md:h-12 rounded-full flex flex-col items-center justify-center text-white shadow-md border-2 border-white transition-all cursor-pointer select-none ${p.bgClass} ${p.hoverBgClass} ${activePillar === idx ? p.activeBorder : "opacity-85"}`}
+                      className={`w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 rounded-full flex flex-col items-center justify-center text-white shadow-md border-2 border-white transition-all cursor-pointer select-none ${p.bgClass} ${p.hoverBgClass} ${activePillar === idx ? p.activeBorder : "opacity-85"}`}
                     >
-                      <PillarIcon size={13} className="md:w-5 md:h-5" />
+                      <PillarIcon size={13} className="md:w-4 md:h-4 lg:w-5 lg:h-5" />
                     </motion.button>
                   );
                 })}
@@ -263,13 +267,13 @@ const ShutteringMaterialAndSupportUse = () => {
                         key={pairStart + pIdx}
                         className={`border rounded-xl p-4 bg-slate-50/50 flex flex-col justify-start gap-2 transition-all duration-300 ${activePillar === pairStart + pIdx ? 'border-slate-300 ring-2 ring-slate-200/80 shadow-sm' : 'border-slate-100'}`}
                       >
-                        <span className={`font-bold text-sm uppercase tracking-wider flex items-center gap-2 ${pillar.titleColor}`}>
-                          <ClipboardList className="w-4 h-4" /> {pillar.title} Pillar
+                        <span className={`font-bold text-xs lg:text-sm uppercase tracking-wider flex items-center gap-1.5 lg:gap-2 ${pillar.titleColor}`}>
+                          <ClipboardList className="w-3.5 h-3.5 lg:w-4 lg:h-4" /> {pillar.title} Pillar
                         </span>
-                        <div className="space-y-2 text-[13px] text-slate-600 font-medium">
+                        <div className="space-y-1.5 lg:space-y-2 text-[11px] lg:text-[12px] text-slate-600 font-medium">
                           {pillar.points.map((pt, idx) => (
-                            <div key={idx} className="flex items-center gap-2">
-                              <span className={`w-2 h-2 rounded-full shrink-0 ${pillar.bulletColor}`} />
+                            <div key={idx} className="flex items-center gap-1.5 lg:gap-2">
+                              <span className={`w-1.5 h-1.5 lg:w-2 lg:h-2 rounded-full shrink-0 ${pillar.bulletColor}`} />
                               <span>{pt}</span>
                             </div>
                           ))}
@@ -317,10 +321,10 @@ const ShutteringMaterialAndSupportUse = () => {
                     <motion.div
                       whileHover={{ scale: 1.08 }}
                       transition={{ type: "spring", stiffness: 200, damping: 12 }}
-                      className="w-12 h-12 md:w-24 md:h-24 rounded-full border-2 border-[#8c1d21] bg-white text-slate-800 flex flex-col items-center justify-center p-1 md:p-3 shadow-sm relative z-10 group-hover:bg-[#8c1d21] group-hover:text-white transition-all duration-300 gap-0.5 md:gap-1 cursor-default select-none"
+                      className="w-12 h-12 md:w-20 md:h-20 lg:w-22 lg:h-22 rounded-full border-2 border-[#8c1d21] bg-white text-slate-800 flex flex-col items-center justify-center p-1 md:p-2 lg:p-3 shadow-sm relative z-10 group-hover:bg-[#8c1d21] group-hover:text-white transition-all duration-300 gap-0.5 md:gap-1 cursor-default select-none"
                     >
-                      <IconComponent className="group-hover:text-white text-[#8c1d21] transition-colors w-3 h-3 md:w-[18px] md:h-[18px]" />
-                      <span className="text-slate-800 font-extrabold text-[5.5px] md:text-[8px] text-center block uppercase tracking-tight leading-tight group-hover:!text-white transition-colors max-w-[40px] md:max-w-[48px] whitespace-normal">{b.title}</span>
+                      <IconComponent className="group-hover:text-white text-[#8c1d21] transition-colors w-3 h-3 md:w-[16px] md:h-[16px] lg:w-[18px] lg:h-[18px]" />
+                      <span className="text-slate-800 font-extrabold text-[5.5px] md:text-[7px] lg:text-[8px] text-center block uppercase tracking-tight leading-tight group-hover:!text-white transition-colors max-w-[40px] md:max-w-[44px] whitespace-normal">{b.title}</span>
                     </motion.div>
                   </motion.div>
 
@@ -332,7 +336,7 @@ const ShutteringMaterialAndSupportUse = () => {
                         show: { opacity: 1, scaleX: 1, transition: { duration: 0.4, ease: "easeOut" } }
                       }}
                       style={{ originX: 0 }}
-                      className="flex-1 h-6 md:h-14 mx-0.5 md:mx-1.5 pointer-events-none select-none relative z-0"
+                      className="flex-1 h-6 md:h-10 lg:h-12 mx-0.5 md:mx-1.5 pointer-events-none select-none relative z-0"
                     >
                       <svg className="w-full h-full overflow-visible" fill="none" viewBox="0 0 100 40" preserveAspectRatio="none">
                         <defs>

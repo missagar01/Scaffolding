@@ -26,6 +26,10 @@ const ProcurementChecklist = () => {
         const availableHeight = height - 120;
         const targetHeight = 700; // 5 stacked cards need more height
         let factor = availableHeight / targetHeight;
+        // Also bound by width for tall/narrow Android phones
+        const availableWidth = width - 32;
+        const targetWidth = 340;
+        factor = Math.min(factor, availableWidth / targetWidth);
         setScaleFactor(Math.max(0.75, Math.min(1, factor)));
       } else if (width < 1024) {
         setScaleFactor(0.85);

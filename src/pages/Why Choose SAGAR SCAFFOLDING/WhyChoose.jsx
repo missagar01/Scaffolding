@@ -26,14 +26,16 @@ const WhyChoose = () => {
         const availableHeight = height - 120;
         const targetHeight = 650; 
         let factor = availableHeight / targetHeight;
-        setScaleFactor(Math.max(0.75, Math.min(1, factor)));
-      } else if (width < 1024) {
-        setScaleFactor(0.85);
+        // Also bound by width for tall/narrow Android phones
+        const availableWidth = width - 32;
+        const targetWidth = 340;
+        factor = Math.min(factor, availableWidth / targetWidth);
+        setScaleFactor(Math.max(0.6, Math.min(1, factor)));
       } else {
-        const availableHeight = height - 120;
-        const targetHeight = 500;
+        const availableHeight = height - 160;
+        const targetHeight = 640;
         const factor = availableHeight / targetHeight;
-        setScaleFactor(Math.max(0.7, Math.min(1.05, factor)));
+        setScaleFactor(Math.max(0.6, Math.min(1, factor)));
       }
     };
     handleResize();
@@ -80,10 +82,10 @@ const WhyChoose = () => {
   ];
 
   return (
-    <div className="relative w-full h-full flex items-center justify-center px-4 sm:px-8 md:px-12 lg:px-16 overflow-hidden select-none">
+    <div className="relative w-full h-full flex flex-col items-center justify-center px-4 sm:px-8 md:px-12 lg:px-16 overflow-hidden select-none pb-20 md:pb-24 pt-8 md:pt-12">
       <div
         style={{ transform: `scale(${scaleFactor})`, transformOrigin: 'center' }}
-        className="relative z-10 w-full max-w-6xl flex flex-col gap-3 lg:gap-5 mt-[-4vh] md:mt-[-3vh] transition-transform duration-300 mx-auto"
+        className="relative z-10 w-full max-w-6xl flex flex-col gap-3 lg:gap-5 transition-transform duration-300 mx-auto"
       >
         {/* Header */}
         <div className="flex flex-col items-start w-full mb-2 shrink-0 px-2 sm:px-4 lg:px-8">

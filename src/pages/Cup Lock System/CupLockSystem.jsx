@@ -25,13 +25,17 @@ const CupLockSystem = () => {
     const handleResize = () => {
       const height = window.innerHeight;
       const width = window.innerWidth;
-      
+
       if (width < 768) {
         // Mobile screens: vertical layout
         // We have: Header + Tab bar (approx 160px) + Dots/Footer (approx 80px) = 240px static space
         const availableHeight = height - 240;
         const targetHeight = 460; // compact mobile content height
         let factor = availableHeight / targetHeight;
+        // Also bound by width for tall/narrow Android phones
+        const availableWidth = width - 32;
+        const targetWidth = 340;
+        factor = Math.min(factor, availableWidth / targetWidth);
         setScaleFactor(Math.max(0.65, Math.min(1, factor)));
       } else {
         // Desktop screens: horizontal layout
@@ -39,7 +43,7 @@ const CupLockSystem = () => {
         const availableHeight = height - 180;
         const targetHeight = 440;
         const factor = availableHeight / targetHeight;
-        setScaleFactor(Math.max(0.75, Math.min(1.05, factor)));
+        setScaleFactor(Math.max(0.75, Math.min(0.92, factor)));
       }
     };
 
@@ -75,13 +79,13 @@ const CupLockSystem = () => {
 
   return (
     <div className="relative w-full h-full flex items-center justify-center px-6 sm:px-12 md:px-16 lg:px-20 overflow-hidden select-none">
-      
+
       {/* Main Container with height auto-adjustment */}
-      <div 
-        style={{ transform: `scale(${scaleFactor})`, transformOrigin: 'center' }}
-        className="relative z-10 w-full max-w-6xl flex flex-col py-2 md:py-4 mt-[-3vh] md:mt-[-2vh] transition-transform duration-300"
+      <div
+        style={{ transform: `scale(${scaleFactor})`, transformOrigin: 'top center' }}
+        className="relative z-10 w-full max-w-6xl flex flex-col py-2 md:py-4 mt-[-4vh] md:mt-[-6vh] lg:mt-[-5vh] transition-transform duration-300"
       >
-        
+
         {/* Header Block matching AboutUs.jsx */}
         <div className="flex flex-col mb-3 md:mb-5 lg:mb-6">
           <div className="relative inline-block w-fit mb-1.5 pb-0.5">
@@ -100,28 +104,26 @@ const CupLockSystem = () => {
         <div className="flex justify-center gap-1.5 sm:gap-3 mt-3 mb-4 md:mt-0 md:mb-5 lg:mb-6 w-full">
           <button
             onClick={() => setActiveTab('verticals')}
-            className={`py-1.5 px-2 md:py-2 md:px-4 text-[10px] sm:text-xs md:text-sm font-bold transition-all rounded-lg border shadow-xs whitespace-nowrap ${
-              activeTab === 'verticals'
+            className={`py-1.5 px-2 md:py-2 md:px-4 text-[10px] sm:text-xs md:text-sm font-bold transition-all rounded-lg border shadow-xs whitespace-nowrap ${activeTab === 'verticals'
                 ? "bg-[#8c1d21] text-white border-[#8c1d21]"
                 : "bg-white text-slate-600 border-slate-200 hover:text-slate-800 hover:bg-slate-50"
-            }`}
+              }`}
           >
             Vertical Standards
           </button>
           <button
             onClick={() => setActiveTab('ledgers')}
-            className={`py-1.5 px-2 md:py-2 md:px-4 text-[10px] sm:text-xs md:text-sm font-bold transition-all rounded-lg border shadow-xs whitespace-nowrap ${
-              activeTab === 'ledgers'
+            className={`py-1.5 px-2 md:py-2 md:px-4 text-[10px] sm:text-xs md:text-sm font-bold transition-all rounded-lg border shadow-xs whitespace-nowrap ${activeTab === 'ledgers'
                 ? "bg-[#8c1d21] text-white border-[#8c1d21]"
                 : "bg-white text-slate-600 border-slate-200 hover:text-slate-800 hover:bg-slate-50"
-            }`}
+              }`}
           >
             Horizontal Ledgers
           </button>
         </div>
 
         {/* Content Tabs Area */}
-        <div className="relative w-full h-[395px] md:h-[330px] lg:h-[340px]">
+        <div className="relative w-full h-[395px] md:h-[330px] lg:h-[300px]">
           <AnimatePresence mode="wait">
             {activeTab === 'verticals' ? (
               <motion.div
@@ -140,6 +142,20 @@ const CupLockSystem = () => {
                       <Shield size={12} className="inline-block text-[#8c1d21] mr-1.5 align-middle shrink-0" />
                       Verticals are the principal load bearing members comprising of Sets of Top and Bottom Cups. The Bottom Cups are welded at 500/1000 mm distance. The Top Cups are movable and retained by a fix stop. Made of 40NB Medium/Heavy class pipes, drilled for Spigot Joints.
                     </p>
+
+                    {/* Graphic display banner */}
+                    <div className="w-full h-[110px] rounded-xl overflow-hidden border border-slate-200/60 bg-white shadow-sm relative mt-0.5">
+                      <img
+                        src={verticalImg}
+                        alt="Cuplock Vertical Standard"
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-900/0 opacity-90" />
+                      <div className="absolute bottom-2 left-3 right-3 text-white">
+                        <span className="text-[9px] font-bold tracking-wide uppercase">Vertical Standard</span>
+                        <p className="text-[7.5px] text-slate-300">Principal load-bearing pipe standard</p>
+                      </div>
+                    </div>
 
                     {/* Tables Row - Side by side on mobile */}
                     <div className="flex flex-row gap-2 w-full mt-0.5">
@@ -168,21 +184,7 @@ const CupLockSystem = () => {
 
                     </div>
 
-                    {/* Graphic display banner at the bottom */}
-                    <div className="w-full h-[110px] rounded-xl overflow-hidden border border-slate-200/60 bg-white shadow-sm relative mt-0.5">
-                      <img 
-                        src={verticalImg} 
-                        alt="Cuplock Vertical Standard" 
-                        className="w-full h-full object-cover" 
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-900/0 opacity-90" />
-                      <div className="absolute bottom-2 left-3 right-3 text-white">
-                        <span className="text-[9px] font-bold tracking-wide uppercase">Vertical Standard</span>
-                        <p className="text-[7.5px] text-slate-300">Principal load-bearing pipe standard</p>
-                      </div>
-                    </div>
 
-                  
                   </div>
                 ) : (
                   /* Desktop view */
@@ -227,16 +229,16 @@ const CupLockSystem = () => {
 
 
                       </div>
-                      
-                     
+
+
                     </div>
 
                     {/* Verticals Graphic display */}
-                    <div className="w-full md:w-[34%] shrink-0 h-[220px] md:h-[310px] lg:h-[320px] rounded-2xl overflow-hidden border border-slate-200/60 bg-white shadow-md relative group mt-4 md:mt-0">
-                      <img 
-                        src={verticalImg} 
-                        alt="Cuplock Vertical Standard" 
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                    <div className="w-full md:w-[34%] shrink-0 h-[220px] md:h-[310px] lg:h-[280px] rounded-2xl overflow-hidden border border-slate-200/60 bg-white shadow-md relative group mt-4 md:mt-0">
+                      <img
+                        src={verticalImg}
+                        alt="Cuplock Vertical Standard"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-900/0 opacity-90" />
                       <div className="absolute bottom-3 left-3 right-3 text-white">
@@ -265,6 +267,20 @@ const CupLockSystem = () => {
                       Horizontals are made of 40 NB Light / Medium class pipes with forged Ledger blades welded at both the ends. The simple robust design ensures that Ledgers Horizontals need no maintenance. Length of the Ledgers Horizontal is calculated between Centre to Centre of such two Verticals.
                     </p>
 
+                    {/* Graphic display banner */}
+                    <div className="w-full h-[110px] rounded-xl overflow-hidden border border-slate-200/60 bg-white shadow-sm relative mt-0.5">
+                      <img
+                        src={ledgerImg}
+                        alt="Cuplock Ledger Horizontal"
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-900/0 opacity-90" />
+                      <div className="absolute bottom-2 left-3 right-3 text-white">
+                        <span className="text-[9px] font-bold tracking-wide uppercase">Ledger Horizontal</span>
+                        <p className="text-[7.5px] text-slate-300">Horizontal connection tube component</p>
+                      </div>
+                    </div>
+
                     {/* Table Row */}
                     <div className="bg-white border border-slate-200/80 rounded-lg overflow-hidden shadow-xs w-full mt-0.5">
                       <table className="cuplock-table-mobile w-full text-left border-collapse">
@@ -287,21 +303,7 @@ const CupLockSystem = () => {
                       </table>
                     </div>
 
-                    {/* Graphic display banner at the bottom */}
-                    <div className="w-full h-[110px] rounded-xl overflow-hidden border border-slate-200/60 bg-white shadow-sm relative mt-0.5">
-                      <img 
-                        src={ledgerImg} 
-                        alt="Cuplock Ledger Horizontal" 
-                        className="w-full h-full object-cover" 
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-900/0 opacity-90" />
-                      <div className="absolute bottom-2 left-3 right-3 text-white">
-                        <span className="text-[9px] font-bold tracking-wide uppercase">Ledger Horizontal</span>
-                        <p className="text-[7.5px] text-slate-300">Horizontal connection tube component</p>
-                      </div>
-                    </div>
 
-                   
                   </div>
                 ) : (
                   /* Desktop view */
@@ -341,16 +343,16 @@ const CupLockSystem = () => {
                           </tbody>
                         </table>
                       </div>
-                      
-                   
+
+
                     </div>
 
                     {/* Ledgers Graphic display */}
-                    <div className="w-full md:w-[34%] shrink-0 h-[220px] md:h-[310px] lg:h-[320px] rounded-2xl overflow-hidden border border-slate-200/60 bg-white shadow-md relative group mt-4 md:mt-0">
-                      <img 
-                        src={ledgerImg} 
-                        alt="Cuplock Ledger Horizontal" 
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                    <div className="w-full md:w-[34%] shrink-0 h-[220px] md:h-[310px] lg:h-[280px] rounded-2xl overflow-hidden border border-slate-200/60 bg-white shadow-md relative group mt-4 md:mt-0">
+                      <img
+                        src={ledgerImg}
+                        alt="Cuplock Ledger Horizontal"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-900/0 opacity-90" />
                       <div className="absolute bottom-3 left-3 right-3 text-white">

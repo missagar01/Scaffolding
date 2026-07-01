@@ -26,14 +26,18 @@ const ApplicationAreas = () => {
 
       if (width < 768) {
         const availableHeight = height - 120;
-        const targetHeight = 440;
+        const targetHeight = 520;
         let factor = availableHeight / targetHeight;
-        setScaleFactor(Math.max(0.75, Math.min(1, factor)));
+        // Also bound by width for tall/narrow Android phones
+        const availableWidth = width - 32;
+        const targetWidth = 340;
+        factor = Math.min(factor, availableWidth / targetWidth);
+        setScaleFactor(Math.max(0.6, Math.min(1.05, factor)));
       } else {
-        const availableHeight = height - 120;
-        const targetHeight = 500;
+        const availableHeight = height - 160;
+        const targetHeight = 640;
         const factor = availableHeight / targetHeight;
-        setScaleFactor(Math.max(0.7, Math.min(1.05, factor)));
+        setScaleFactor(Math.max(0.7, Math.min(1, factor)));
       }
     };
 
@@ -141,11 +145,11 @@ const ApplicationAreas = () => {
   };
 
   return (
-    <div className="relative w-full h-full flex items-center justify-center px-4 sm:px-8 md:px-12 lg:px-16 overflow-hidden select-none">
+    <div className="relative w-full h-full flex flex-col items-center justify-center px-4 sm:px-8 md:px-12 lg:px-16 overflow-hidden select-none pb-12 md:pb-24 pt-4 md:pt-12">
 
       <div
         style={{ transform: `scale(${scaleFactor})`, transformOrigin: 'center' }}
-        className="relative z-10 w-full max-w-6xl flex flex-col gap-1.5 md:gap-3 mt-[-4vh] md:mt-[-3vh] transition-transform duration-300 mx-auto"
+        className="relative z-10 w-full max-w-6xl flex flex-col gap-1.5 md:gap-3 transition-transform duration-300 mx-auto"
       >
 
         {/* ================= SECTION 1 ================= */}
