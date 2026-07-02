@@ -167,6 +167,11 @@ tr.order-row-stock:hover td {
   overflow: hidden;
   font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
   user-select: none;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
 }
 
 /* Responsive Global Zoom for Large Screens to Increase Content and Text Size */
@@ -228,25 +233,48 @@ tr.order-row-stock:hover td {
   position: relative;
   z-index: 30;
   width: 100%;
-  height: 100%;
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  padding-top: 6vh;
+  justify-content: center;
+}
+
+@media (max-width: 767px) {
+  .border-content-wrapper {
+    padding-bottom: 72px; /* Space for the bottom navigation dots */
+  }
+
+  /* Dynamic scale based on viewport height to remove white space on very tall screens */
+  @media (min-height: 800px) {
+    .border-content-wrapper {
+      transform: scale(1.05);
+      transform-origin: center center;
+    }
+  }
+  @media (min-height: 900px) {
+    .border-content-wrapper {
+      transform: scale(1.1);
+      transform-origin: center center;
+    }
+  }
+  @media (max-height: 650px) {
+    .border-content-wrapper {
+      transform: scale(0.9);
+      transform-origin: center top;
+    }
+  }
 }
 
 @media (min-width: 768px) {
   .border-content-wrapper {
     justify-content: center;
-    padding-top: 0;
+    padding-bottom: 0;
   }
 }
 
 .border-footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
+  position: relative;
   width: 100%;
   z-index: 40;
 }
@@ -254,7 +282,7 @@ tr.order-row-stock:hover td {
 /* Slide Navigation Overlay (Footer side, centered in a single row) */
 .border-slide-navigation {
   position: absolute;
-  bottom: 36px;
+  bottom: calc(36px + env(safe-area-inset-bottom, 0px));
   left: 50%;
   transform: translateX(-50%);
   display: flex;
